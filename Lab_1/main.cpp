@@ -27,7 +27,20 @@ constexpr std::uint32_t OneMillisecondRation = 1000U; // ratio of division
 // -------------------------Function of delay-----------------------------------
 void Delay(std::uint32_t milliseconds)
 {
-  TIM2::CNT::Write(0U); // reset of Counter (CNT) to zero
+  // for System Timer
+  const std::uint32_t delayCounts = milliseconds * SystemClock / OneMillisecondRation - 1U;
+  STK::VAL::Write(0U);
+  STK::LOAD::Write(delayCounts);
+  
+  STK::CTRL::ENABLE::Enable::Set();
+  while(!STK::CTRL::COUNTFLAG::Overflow::IsSet())
+  {
+    
+  }
+  STK::CTRL::ENABLE::Disable::Set();
+  
+  // for TIM2
+  /* TIM2::CNT::Write(0U); // reset of Counter (CNT) to zero
   TIM2::ARR::Write(milliseconds); // maximum value in Timer 2
   
   TIM2::CR1::CEN::Enable::Set(); // Enable of Timer 2
@@ -37,7 +50,7 @@ void Delay(std::uint32_t milliseconds)
   }
   TIM2::SR::UIF::NoInterruptPending::Set();
   TIM2::CNT::Write(0U);
-  TIM2::CR1::CEN::Disable::Set(); // Disable of Timer 2
+  TIM2::CR1::CEN::Disable::Set(); // Disable of Timer 2 */
 }
 //-------------Creation of LEDs with binding of pins--------------
 
@@ -85,6 +98,7 @@ Button userButton1(pinC13);
     
 int main()
 {
+  // Submitting the clock for TIM2
   RCC::APB1ENR::TIM2EN::Enable::Set(); // submitting the clock for Timer 2
   TIM2::PSC::Write(8000U); // set the Prescaller (PSC) for frequency of Timer 2
   
