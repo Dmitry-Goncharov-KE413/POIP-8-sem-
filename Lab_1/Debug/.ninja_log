@@ -1,0 +1,11 @@
+# ninja log v5
+15	546	7001702799016302	D:/POIP/POIP-8-sem-/Lab_1/Debug/Obj/Components/LED/Led.o	b2c6ff1e9f5337c6
+22	1562	7001702809070249	D:/POIP/POIP-8-sem-/Lab_1/Debug/Obj/Modes/AllMode/AllMode.o	79866021212d0f79
+8	1601	7001702809240151	D:/POIP/POIP-8-sem-/Lab_1/Debug/Obj/Modes/ChessMode/ChessMode.o	8b9e4310b0dc28c6
+1	1624	7001702809220160	D:/POIP/POIP-8-sem-/Lab_1/Debug/Obj/Components/Button/Button.o	bb4907a23b307d4a
+1617	2679	7001702820308541	D:/POIP/POIP-8-sem-/Lab_1/Debug/Obj/Modes/TreeMode/TreeMode.o	bdc02abb1c7471e3
+1578	2697	7001702820328529	D:/POIP/POIP-8-sem-/Lab_1/Debug/Obj/Modes/SlideMode/SlideMode.o	374a050081e55a2d
+558	3366	7001702826798225	D:/POIP/POIP-8-sem-/Lab_1/Debug/Obj/main.o	2ede20f3f8e293ae
+3384	4015	7001702833766301	D:/POIP/POIP-8-sem-/Lab_1/Debug/Exe/Lab_1 (Timers).out	426138e8dc980947
+4	2360	7001703442904475	D:/POIP/POIP-8-sem-/Lab_1/Debug/Obj/main.o	2ede20f3f8e293ae
+2373	2484	7001703444653396	D:/POIP/POIP-8-sem-/Lab_1/Debug/Exe/Lab_1 (Timers).out	426138e8dc980947
