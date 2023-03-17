@@ -331,7 +331,12 @@ D:\POIP\POIP-8-sem-\Lab_2\Debug\BrowseInfo\main.pbi: \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\inc\libcpp\streambuf \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\inc\libcpp\__bsd_locale_defaults.h \
   D:\POIP\POIP-8-sem-\Lab_2\Modes\Garland\IMode.h \
+  D:\POIP\CortexLib\AbstractHardware\InterruptHandler\interrupthandler.hpp \
+  D:\POIP\CortexLib\AbstractHardware\Registers\STM32F411\tim2registers.hpp \
+  D:\POIP\CortexLib\AbstractHardware\Registers\STM32F411\FieldValues\tim2fieldvalues.hpp \
+  D:\POIP\CortexLib\AbstractHardware\Registers\STM32F411\tim5registers.hpp \
+  D:\POIP\CortexLib\AbstractHardware\Registers\STM32F411\FieldValues\tim5fieldvalues.hpp \
   D:\POIP\CortexLib\AbstractHardware\Registers\CortexM4\stkregisters.hpp \
   D:\POIP\CortexLib\AbstractHardware\Registers\CortexM4\FieldValues\stkfieldvalues.hpp \
-  D:\POIP\CortexLib\AbstractHardware\Registers\STM32F411\tim2registers.hpp \
-  D:\POIP\CortexLib\AbstractHardware\Registers\STM32F411\FieldValues\tim2fieldvalues.hpp
+  D:\POIP\CortexLib\AbstractHardware\Registers\CortexM4\nvicregisters.hpp \
+  D:\POIP\CortexLib\AbstractHardware\Registers\CortexM4\FieldValues\nvicfieldvalues.hpp

@@ -1,0 +1,10 @@
+# ninja log v5
+28	563	7007536178401494	D:/POIP/POIP-8-sem-/Lab_3/Debug/Obj/Components/LED/Led.o	822f45ffed9cb299
+10	2028	7007536192852622	D:/POIP/POIP-8-sem-/Lab_3/Debug/Obj/Modes/AllMode/AllMode.o	1639fd52aa0bffe9
+1	2064	7007536192872609	D:/POIP/POIP-8-sem-/Lab_3/Debug/Obj/Components/Button/Button.o	9297558f3a419d48
+19	2146	7007536193562615	D:/POIP/POIP-8-sem-/Lab_3/Debug/Obj/Modes/ChessMode/ChessMode.o	1f2ca7357ce8f657
+583	2457	7007536197170379	D:/POIP/POIP-8-sem-/Lab_3/Debug/Obj/Modes/SlideMode/SlideMode.o	25c5fdfc70d7527
+2054	3587	7007536208532142	D:/POIP/POIP-8-sem-/Lab_3/Debug/Obj/Modes/TreeMode/TreeMode.o	8b003ffb45ca3173
+2091	4968	7007536221979937	D:/POIP/POIP-8-sem-/Lab_3/Debug/Obj/startup.o	9530bf2f4f833672
+2170	5665	7007536228716572	D:/POIP/POIP-8-sem-/Lab_3/Debug/Obj/main.o	3f9770972d9f3a78
+5691	6091	7007536233686640	D:/POIP/POIP-8-sem-/Lab_3/Debug/Exe/Interface_USART.out	8d298838c4f87c78
