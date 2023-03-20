@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<userOverrides>
+    <override>
+        <path>D:\POIP\CortexLib\AbstractHardware\InterruptHandler\interrupthandler.hpp</path>
+        <encoding>Win-1251</encoding>
+    </override>
+    <override>
+        <path>D:\POIP\POIP-8-sem-\Lab_4\Hardware\Sender\Sender.h</path>
+        <encoding>Win-1251</encoding>
+    </override>
+    <override>
+        <path>D:\POIP\POIP-8-sem-\Lab_4\main.cpp</path>
+        <encoding>Win-1251</encoding>
+    </override>
+</userOverrides>

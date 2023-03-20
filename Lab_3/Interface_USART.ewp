@@ -366,6 +366,9 @@
                     <state>D:\POIP\CortexLib\AbstractHardware\Registers\CortexM4</state>
                     <state>D:\POIP\CortexLib\AbstractHardware\Registers\CortexM4\FieldValues</state>
                     <state>D:\POIP\CortexLib\AbstractHardware\InterruptHandler</state>
+                    <state>D:\POIP\CortexLib\AbstractHardware\Uart</state>
+                    <state>D:\POIP\CortexLib\AbstractHardware\Uart\Stm32Fxx</state>
+                    <state>D:\POIP\POIP-8-sem-\Lab_3\Hardware\Sender</state>
                 </option>
                 <option>
                     <name>CCStdIncCheck</name>
@@ -774,7 +777,7 @@
                 </option>
                 <option>
                     <name>IlinkIcfFile</name>
-                    <state></state>
+                    <state>$TOOLKIT_DIR$/config/linker/ST/stm32f411xC.icf</state>
                 </option>
                 <option>
                     <name>IlinkIcfFileSlave</name>
@@ -834,7 +837,7 @@
                 </option>
                 <option>
                     <name>IlinkProgramEntryLabel</name>
-                    <state></state>
+                    <state>__iar_program_start</state>
                 </option>
                 <option>
                     <name>DoFill</name>
@@ -1007,7 +1010,7 @@
                 </option>
                 <option>
                     <name>IlinkTrustzoneImportLibraryOut</name>
-                    <state>###Unitialized###</state>
+                    <state>Interface_USART_import_lib.o</state>
                 </option>
                 <option>
                     <name>OILinkExtraOption</name>
@@ -2204,6 +2207,12 @@
             </file>
             <file>
                 <name>$PROJ_DIR$\Hardware\Pin\pinconfig.h</name>
+            </file>
+        </group>
+        <group>
+            <name>Sender</name>
+            <file>
+                <name>$PROJ_DIR$\Hardware\Sender\Sender.h</name>
             </file>
         </group>
     </group>

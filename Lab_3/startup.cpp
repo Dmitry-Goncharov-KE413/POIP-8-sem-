@@ -1,6 +1,6 @@
 #include "interrupthandler.hpp" //for InterruptHandler
 
-extern "C" void __iar_program_start(void) ;
+extern "C" void __iar_program_start(void);
 
 using tIntFunct = void(*)();
 using tIntVectItem = union {tIntFunct __fun; void * __ptr;};
@@ -65,8 +65,8 @@ InterruptHandler::DummyHandler, //TIM10/TIM1 Update interrupt
 InterruptHandler::DummyHandler, //TIM11/TIM1 Trigger/Commutation interrupts
 InterruptHandler::DummyHandler, //TIM1 Capture Compare interrupt
 InterruptHandler::DummyHandler, //TIM2 from System Timer (15)
-InterruptHandler::DummyHandler, //TIM3
-InterruptHandler::DummyHandler, ////TIM4
+InterruptHandler::DummyHandler, 
+InterruptHandler::USART2Handler, // USART (38 from System Timer)
 InterruptHandler::DummyHandler, //EXTI Line 9..5
 InterruptHandler::DummyHandler, //TIM9/TIM1 Break interrupt
 InterruptHandler::DummyHandler, //TIM10/TIM1 Update interrupt

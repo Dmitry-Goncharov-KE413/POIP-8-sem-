@@ -1,8 +1,6 @@
 #include "rccregisters.hpp" // for RCC
 #include "gpiocregisters.hpp" // Register of Port C
 #include "gpioaregisters.hpp" // Register of Port A
-#include "gpiobregisters.hpp" // Register of Port B
-#include "gpiodregisters.hpp" // Register of Port D
 
 
 #include "pinconfig.h"
@@ -22,8 +20,13 @@
 #include "tim2registers.hpp" // Connection with Timer 2
 #include "tim5registers.hpp" // Connection with Timer 5
 #include "nvicregisters.hpp"
+#include "usart2registers.hpp" // Library of interfase USAST
 
-constexpr std::uint32_t SystemClock = 8000000U; // clock of HSI
+#include "adc1registers.hpp" // регистры для аналого-цифрового преобразователя (АЦП)
+
+#include "Sender.h"
+
+constexpr std::uint32_t SystemClock = 16000000U; // clock of HSI
 constexpr std::uint32_t OneMillisecondRation = 1000U; // ratio of division
 
 // -------------------------Function of delay-----------------------------------
@@ -134,18 +137,54 @@ int main()
   // Allow of global interruption for Timer 5
   NVIC::ISER1::Write(1U<<18U); // Allow of global Interruption of Timer 5
   TIM5::DIER::UIE::Value1::Set(); // Allow of Interrupt by overflow
-  
-  
-  // Submitting the clock for Ports of MCU
-  RCC::AHB1ENR::GPIOCEN::Enable::Set(); // Clock for port C
-  RCC::AHB1ENR::GPIOAEN::Enable::Set(); // Clock for port A
 
+  // Подача 
+  RCC::AHB1ENR::GPIOCEN::Enable::Set(); // Подали тактирование на порт С
+  RCC::AHB1ENR::GPIOAEN::Enable::Set(); // Подали тактирование на порт А
+  
   // Connection of Port C and port A to Output
   GPIOA::MODER::MODER5::Output::Set();
   GPIOC::MODER::MODER5::Output::Set();
   GPIOC::MODER::MODER8::Output::Set();
   GPIOC::MODER::MODER9::Output::Set();
   
+  // Порт А2 USART настроить на альтернативный режим
+  GPIOA::MODER::MODER2::Alternate::Set(); // перевели порт А2 в альтернативный режим
+  GPIOA::MODER::MODER3::Alternate::Set(); // перевели порт А3 в альтернативный режим
+  GPIOA::AFRL::AFRL2::Af7::Set(); // перевели порт А2 в режим USART_TX (режим передачи данных)
+  GPIOA::AFRL::AFRL3::Af7::Set(); // перевели порт А3 в режим USART_RX (режим передачи данных)
+  
+  // Transfer of data by UART
+  RCC::APB1ENR::USART2EN::Enable::Set();
+  NVIC::ISER1::Write(1U<<6U);
+  USART2::CR1::M::Data8bits::Set();
+  
+  USART2::CR1::TXEIE::InterruptWhenTXE::Set();
+  //USART2::CR1::TCIE::InterruptWhenTC::Set();
+  //USART2::CR1::RXNEIE::InterruptWhenRXNE::Set();
+  
+  USART2::CR1::TE::Enable::Set(); // влкючили передачу
+  USART2::CR1::RE::Enable::Set();
+  uint32_t usartDiv = SystemClock/9600; // 9600 - требуемая скорость передачи
+  USART2::BRR::Write(usartDiv); // число 16 компенсируется
+  
+  USART2::CR2::STOP::Value0::Set();
+  USART2::CR1::UE::Enable::Set();
+  
+  
+  // Подача тактирования на АЦП
+  RCC::APB2ENR::ADC1EN::Enable::Set();
+  // Настройка разрядности АЦП
+  ADC1::CR1::RES::Bits12::Set(); // установили разрядность АЦП в 12 бит (4096 точек)
+  // Установить количество измерений для АЦП
+  ADC1::SQR1::L::Conversions1::Set(); // количество измерений, которые будет производить АЦП - 1
+  ADC1::SQR3::SQ1::Channel0::Set(); // задание номера канала, на котором будет осуществляться первое преобразование АЦП
+  // Скорость дискретизации
+  ADC1::SMPR2::SMP0::Cycles480::Set(); // количество циклов, затрачиваемых на дискретизацию
+  ADC1::CR2::ADON::Enable::Set(); // влкючили АЦП
+  
+  GPIOA::MODER::MODER0::Analog::Set(); // АЦП находится на порту 0 (настроили порт в аналоговый режим)
+  uint32_t voltage = 0;
   
   userButton1.AddObserver(garland);
   
@@ -161,6 +200,17 @@ int main()
     {
       garland.UpdateCurrentMode(); // updating the current mode
       isInterrupt = false; // resetting the flag to false
+      Sender<USART2>::Send("Hello world");
+      ADC1::CR2::SWSTART::On::Set(); // запуск АЦП на измерение
+      uint32_t value = ADC1::DR::Get();
+      voltage = (value*3000)/4095;
+      while(ADC1::SR::EOC::ConversionNotComplete::IsSet()) // пока преобразование не завершено, ...
+      {
+        // Ждем, пока завершится преобразование
+      }
+      //std::cout<<ADC1::DR::Get()<<std::endl;
+      std::cout<<voltage/1000<<','<<(voltage/100)%10<<(voltage/10)%10<<voltage%10<<std::endl;
+      
     }
   }
   // create a mode for adding of subscriber (for the next lesson)

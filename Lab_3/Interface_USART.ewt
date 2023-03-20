@@ -2892,6 +2892,12 @@
                 <name>$PROJ_DIR$\Hardware\Pin\pinconfig.h</name>
             </file>
         </group>
+        <group>
+            <name>Sender</name>
+            <file>
+                <name>$PROJ_DIR$\Hardware\Sender\Sender.h</name>
+            </file>
+        </group>
     </group>
     <group>
         <name>Modes</name>

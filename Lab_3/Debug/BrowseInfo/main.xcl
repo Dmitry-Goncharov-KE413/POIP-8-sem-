@@ -49,6 +49,12 @@ D:\POIP\CortexLib\AbstractHardware\Registers\CortexM4\FieldValues
 -I
 D:\POIP\CortexLib\AbstractHardware\InterruptHandler
 -I
+D:\POIP\CortexLib\AbstractHardware\Uart
+-I
+D:\POIP\CortexLib\AbstractHardware\Uart\Stm32Fxx
+-I
+D:\POIP\POIP-8-sem-\Lab_3\Hardware\Sender
+-I
 C:\Program Files\IAR Systems\Embedded Workbench 9.1\arm\inc\libcpp
 -I
 C:\Program Files\IAR Systems\Embedded Workbench 9.1\arm\inc\c\aarch32
@@ -94,6 +100,12 @@ D:\POIP\CortexLib\AbstractHardware\Registers\CortexM4
 D:\POIP\CortexLib\AbstractHardware\Registers\CortexM4\FieldValues
 -I
 D:\POIP\CortexLib\AbstractHardware\InterruptHandler
+-I
+D:\POIP\CortexLib\AbstractHardware\Uart
+-I
+D:\POIP\CortexLib\AbstractHardware\Uart\Stm32Fxx
+-I
+D:\POIP\POIP-8-sem-\Lab_3\Hardware\Sender
 -D__CHAR_BITS__=8
 -D__CHAR_BIT__=8
 -D__CHAR_MAX__=0xff
