@@ -27,18 +27,23 @@
 
 #include "adc1registers.hpp" // библиотека для аналого-цифрового преобразователя (АЦП)
 #include "adccommonregisters.hpp" // бибилиотека для TSVREFE - включения/отключения датчика температуры
-
+#include "ADC.h" // h-файл из класса АЦП
+#include "Temperature.h"
 #include "Sender.h"
-#include "Receiver.h"
 
-constexpr std::uint32_t SystemClock = 16000000U; // clock of HSI
+#include "rtos.hpp"
+#include "mailbox.hpp"
+#include "OutSender.h"
+#include "InSender.h"
+
+std::uint32_t SystemCoreClock = 16000000U; // clock of HSI
 constexpr std::uint32_t OneMillisecondRation = 1000U; // ratio of division
 
 // -------------------------Function of delay-----------------------------------
 void Delay(std::uint32_t milliseconds)
 {
   // for System Timer
-  /* const std::uint32_t delayCounts = milliseconds * SystemClock / OneMillisecondRation - 1U;
+  /* const std::uint32_t delayCounts = milliseconds * SystemCoreClock / OneMillisecondRation - 1U;
   STK::VAL::Write(0U);
   STK::LOAD::Write(delayCounts);
   
@@ -114,18 +119,25 @@ Button userButton1(pinC13);
 //------------------------------------------------------------------------------
     
 //-------------Creation of object (garland) with binding of modes---------------
-  Garland garland(modes);
+  //Garland garland(modes);
 
 //------------------------------------------------------------------------------     
+  
+  //ADC& myAdc; // создание объекта класса ADC - adc
+  Temperature temperature (3.0f, 4095.0f, 0.76f, 2.5f);
+  OsWrapper::MailBox<int, 1> buttonMailBox;
+  OutSender outSender(buttonMailBox, userButton1);
+  InSender inSender(buttonMailBox, leds);
     
+  
 int main()
 {
-  
+  //ADC& adc = myAdc;
   // Submitting the clock for TIM2
   RCC::APB1ENR::TIM2EN::Enable::Set(); // submitting the clock for Timer 2
   
   // Prescaller for Timer 2
-  constexpr std::uint32_t Timer2Prescaller = SystemClock/OneMillisecondRation; // Timer 2 will 1 tick for 1 ms
+  std::uint32_t Timer2Prescaller = SystemCoreClock/OneMillisecondRation; // Timer 2 will 1 tick for 1 ms
   TIM2::PSC::Write(Timer2Prescaller);
   
   // Allow of global interruption for Timer 2
@@ -136,46 +148,46 @@ int main()
   RCC::APB1ENR::TIM5EN::Enable::Set(); // submitting the clock for Timer 5
     
   // Prescaller for Timer 5
-  constexpr std::uint32_t Timer5Prescaller = SystemClock/OneMillisecondRation; // Timer 2 will 1 tick for 1 ms
+  std::uint32_t Timer5Prescaller = SystemCoreClock/OneMillisecondRation; // Timer 2 will 1 tick for 1 ms
   TIM5::PSC::Write(Timer5Prescaller);
   
   // Allow of global interruption for Timer 5
   NVIC::ISER1::Write(1U<<18U); // Allow of global Interruption of Timer 5
   TIM5::DIER::UIE::Value1::Set(); // Allow of Interrupt by overflow
 
-  // ?????? 
-  RCC::AHB1ENR::GPIOCEN::Enable::Set(); // ?????? ???????????? ?? ???? ?
-  RCC::AHB1ENR::GPIOAEN::Enable::Set(); // ?????? ???????????? ?? ???? ?
-  RCC::AHB1ENR::GPIODEN::Enable::Set(); // ?????? ???????????? ?? ???? ?
+  // Подача тактирования на порты микроконтроллера
+  RCC::AHB1ENR::GPIOCEN::Enable::Set(); // подали тактирование на порт С
+  RCC::AHB1ENR::GPIOAEN::Enable::Set(); // подали тактирование на порт А
+  RCC::AHB1ENR::GPIODEN::Enable::Set(); // подали тактирование на порт D
   
-  // Connection of Port C and port A to Output
+  // Настройка портов А и С на выходной режим для светодиодов
   GPIOA::MODER::MODER5::Output::Set();
   GPIOC::MODER::MODER5::Output::Set();
   GPIOC::MODER::MODER8::Output::Set();
   GPIOC::MODER::MODER9::Output::Set();
   
-  // Transfer of data by UART
+  // Передача данных по UART
   RCC::APB1ENR::USART2EN::Enable::Set();
   NVIC::ISER1::Write(1U<<6U);
   
-  // ???? ?2 USART ????????? ?? ?????????????? ?????
-  GPIOA::MODER::MODER2::Alternate::Set(); // ???????? ???? ?2 ? ?????????????? ?????
-  GPIOA::MODER::MODER3::Alternate::Set(); // ???????? ???? ?3 ? ?????????????? ?????
-  GPIOA::AFRL::AFRL2::Af7::Set(); // ???????? ???? ?2 ? ????? USART_TX (????? ???????? ??????)
-  GPIOA::AFRL::AFRL3::Af7::Set(); // ???????? ???? ?3 ? ????? USART_RX (????? ???????? ??????)
+  // Порт А2 USART настроить на альтернативный режим
+  GPIOA::MODER::MODER2::Alternate::Set(); // перевели порт А2 в альтернативный режим
+  GPIOA::MODER::MODER3::Alternate::Set(); // перевели порт А3 в альтернативный режим
+  GPIOA::AFRL::AFRL2::Af7::Set(); // перевели порт А2 в режим USART_TX (режим передачи данных)
+  GPIOA::AFRL::AFRL3::Af7::Set(); // перевели порт А3 в режим USART_RX (режим передачи данных)
   USART2::CR1::M::Data8bits::Set();
   
   USART2::CR1::TXEIE::InterruptWhenTXE::Set();
   //USART2::CR1::TCIE::InterruptWhenTC::Set();
   //USART2::CR1::RXNEIE::InterruptWhenRXNE::Set();
   
-  USART2::CR1::TE::Enable::Set(); // ???????? ????????
+  USART2::CR1::TE::Enable::Set(); // влкючили передачу
   USART2::CR1::RE::Enable::Set();
   
   USART2::CR2::STOP::Value0::Set();
   
-  uint32_t usartDiv = SystemClock/9600; // 9600 - ????????? ???????? ????????
-  USART2::BRR::Write(usartDiv); // ????? 16 ??????????????
+  uint32_t usartDiv = SystemCoreClock/9600; // 9600 - требуемая скорость передачи
+  USART2::BRR::Write(usartDiv); // число 16 компенсируется
   
   USART2::CR1::UE::Enable::Set();
   
@@ -196,28 +208,39 @@ int main()
   GPIOA::MODER::MODER0::Analog::Set(); // АЦП находится на порту 0 (настроили порт в аналоговый режим)
   uint32_t voltage = 0;
   
-  userButton1.AddObserver(garland);
+  //userButton1.AddObserver(garland);
+  
+  
+  
+  
+  
+  
   
  //---------------------------Port and number of ports--------------------------------
-
-
-  //std::uint32_t modeNumber = 0;
+  
+  
+  OsWrapper::Rtos::CreateThread(outSender, "OutSender");
+  OsWrapper::Rtos::CreateThread(inSender, "InSender");
+  OsWrapper::Rtos::Start();
+  
   Delay(500);
   for(;;)
   {
     userButton1.IsPressed();
     if(isInterrupt == true) // if flag is true...
     {
-      garland.UpdateCurrentMode(); // updating the current mode
+      //garland.UpdateCurrentMode(); // updating the current mode
       isInterrupt = false; // resetting the flag to false
       Sender<USART2>::Send("Hello world");
-      ADC1::CR2::SWSTART::On::Set(); // запуск АЦП на измерение
-      uint32_t value = ADC1::DR::Get();
-      voltage = (value*3000)/4095;
-      while(ADC1::SR::EOC::ConversionNotComplete::IsSet()) // пока преобразование не завершено, ...
-      {
-        // Ждем, пока завершится преобразование
-      }
+      
+      
+      
+      //adc.StartConversation();
+      
+      
+      
+      //uint32_t value = adc.GetResult();
+      //voltage = (value*3000)/4095;
       //std::cout<<ADC1::DR::Get()<<std::endl;
       std::cout<<voltage/1000<<','<<(voltage/100)%10<<(voltage/10)%10<<voltage%10<<std::endl;
       

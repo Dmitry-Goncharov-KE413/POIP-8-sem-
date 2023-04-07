@@ -273,12 +273,12 @@ D:\POIP\POIP-8-sem-\Lab_4\Debug\BrowseInfo\main.pbi: \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\inc\libcpp\array \
   D:\POIP\POIP-8-sem-\Lab_4\Modes\AllMode\AllMode.h \
   D:\POIP\POIP-8-sem-\Lab_4\Modes\Garland\IMode.h \
-  D:\POIP\POIP-8-sem-\Lab_4\Components\LED\ILED.h \
+  D:\POIP\POIP-8-sem-\Lab_4\Components\LED\Iled.h \
   D:\POIP\POIP-8-sem-\Lab_4\Components\LED\iled.h \
   D:\POIP\POIP-8-sem-\Lab_4\Modes\ChessMode\ChessMode.h \
-  D:\POIP\POIP-8-sem-\Lab_4\Components\LED\Iled.h \
   D:\POIP\POIP-8-sem-\Lab_4\Modes\TreeMode\TreeMode.h \
   D:\POIP\POIP-8-sem-\Lab_4\Modes\SlideMode\SlideMode.h \
+  D:\POIP\POIP-8-sem-\Lab_4\Components\LED\ILED.h \
   D:\POIP\POIP-8-sem-\Lab_4\Modes\Garland\Garland.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\inc\libcpp\iostream \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\inc\libcpp\ios \
@@ -346,4 +346,39 @@ D:\POIP\POIP-8-sem-\Lab_4\Debug\BrowseInfo\main.pbi: \
   D:\POIP\CortexLib\AbstractHardware\Registers\STM32F411\FieldValues\adc1fieldvalues.hpp \
   D:\POIP\CortexLib\AbstractHardware\Registers\STM32F411\adccommonregisters.hpp \
   D:\POIP\CortexLib\AbstractHardware\Registers\STM32F411\FieldValues\adccommonfieldvalues.hpp \
-  D:\POIP\POIP-8-sem-\Lab_4\Hardware\Receiver\Receiver.h
+  D:\POIP\POIP-8-sem-\Lab_4\Hardware\ADC\ADC.h \
+  D:\POIP\POIP-8-sem-\Lab_4\Hardware\ADC\IADC.h \
+  D:\POIP\POIP-8-sem-\Lab_4\Application\Parameters\Temperature.h \
+  D:\POIP\POIP-8-sem-\Lab_4\Application\Parameters\IMeasureParameter.h \
+  D:\POIP\POIP-8-sem-\Lab_4\Rtos\wrapper\rtos.hpp \
+  D:\POIP\POIP-8-sem-\Lab_4\Rtos\wrapper\thread.hpp \
+  D:\POIP\POIP-8-sem-\Lab_4\Rtos\wrapper\FreeRtos\rtosdefs.hpp \
+  D:\POIP\POIP-8-sem-\Lab_4\Rtos\FreeRtos\include\FreeRtos.h \
+  D:\POIP\POIP-8-sem-\Lab_4\Rtos\FreeRtos\include\..\FreeRTOSConfig.h \
+  D:\POIP\POIP-8-sem-\Lab_4\Rtos\FreeRtos\include\projdefs.h \
+  D:\POIP\POIP-8-sem-\Lab_4\Rtos\FreeRtos\include\portable.h \
+  D:\POIP\POIP-8-sem-\Lab_4\Rtos\FreeRtos\include\deprecated_definitions.h \
+  D:\POIP\POIP-8-sem-\Lab_4\Rtos\FreeRtos\portable\IAR\ARM_CM4F\portmacro.h \
+  C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\inc\c\aarch32\intrinsics.h \
+  C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\inc\c\aarch32\iccarm_builtin.h \
+  C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\inc\c\aarch32\iar_intrinsics_common.h \
+  D:\POIP\POIP-8-sem-\Lab_4\Rtos\FreeRtos\include\mpu_wrappers.h \
+  D:\POIP\POIP-8-sem-\Lab_4\Rtos\FreeRtos\include\task.h \
+  D:\POIP\POIP-8-sem-\Lab_4\Rtos\FreeRtos\include\list.h \
+  D:\POIP\POIP-8-sem-\Lab_4\Rtos\FreeRtos\include\semphr.h \
+  D:\POIP\POIP-8-sem-\Lab_4\Rtos\FreeRtos\include\queue.h \
+  D:\POIP\POIP-8-sem-\Lab_4\Rtos\FreeRtos\include\queue.h \
+  D:\POIP\POIP-8-sem-\Lab_4\Rtos\FreeRtos\include\timers.h \
+  D:\POIP\POIP-8-sem-\Lab_4\Rtos\FreeRtos\include\task.h \
+  D:\POIP\POIP-8-sem-\Lab_4\Rtos\FreeRtos\include\event_groups.h \
+  D:\POIP\POIP-8-sem-\Lab_4\Rtos\FreeRtos\include\timers.h \
+  D:\POIP\POIP-8-sem-\Lab_4\Rtos\FreeRtos\FreeRTOSConfig.h \
+  D:\POIP\POIP-8-sem-\Lab_4\Rtos\wrapper\FreeRtos\rtoswrapper.hpp \
+  D:\POIP\POIP-8-sem-\Lab_4\Rtos\wrapper\FreeRtos\rtosdefs.hpp \
+  D:\POIP\POIP-8-sem-\Lab_4\Rtos\wrapper\eventmode.hpp \
+  D:\POIP\POIP-8-sem-\Lab_4\Rtos\wrapper\mailbox.hpp \
+  D:\POIP\POIP-8-sem-\Lab_4\Thread\OutSender.h \
+  D:\POIP\POIP-8-sem-\Lab_4\Rtos\wrapper\Thread.hpp \
+  D:\POIP\POIP-8-sem-\Lab_4\Rtos\wrapper\MailBox.hpp \
+  D:\POIP\POIP-8-sem-\Lab_4\Components\Button\IButton.h \
+  D:\POIP\POIP-8-sem-\Lab_4\Thread\InSender.h

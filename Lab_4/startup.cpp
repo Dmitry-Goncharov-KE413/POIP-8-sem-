@@ -1,6 +1,9 @@
 #include "interrupthandler.hpp" //for InterruptHandler
+#include "rtos.hpp"
+
 
 extern "C" void __iar_program_start(void);
+extern "C" void xPortPendSVHandler(void);
 
 using tIntFunct = void(*)();
 using tIntVectItem = union {tIntFunct __fun; void * __ptr;};
@@ -22,11 +25,11 @@ InterruptHandler::DummyHandler,
 0,
 0,
 0,
-InterruptHandler::DummyHandler,
+OsWrapper::Rtos::HandleSvcInterrupt,
 InterruptHandler::DummyHandler,
 0,
-InterruptHandler::DummyHandler,
-InterruptHandler::SystemTimerHandler, // 15 – System Timer
+xPortPendSVHandler,
+OsWrapper::Rtos::HandleSysTickInterrupt, // 15 – System Timer
 //External Interrupts
 InterruptHandler::DummyHandler, //Window Watchdog
 InterruptHandler::DummyHandler, //PVD through EXTI Line detect/EXTI16
@@ -99,7 +102,7 @@ InterruptHandler::DummyHandler,
 InterruptHandler::DummyHandler,
 InterruptHandler::DummyHandler,
 InterruptHandler::DummyHandler,
-InterruptHandler::USART6Handler,
+InterruptHandler::DummyHandler,
 InterruptHandler::DummyHandler,
 InterruptHandler::DummyHandler,
 InterruptHandler::DummyHandler,

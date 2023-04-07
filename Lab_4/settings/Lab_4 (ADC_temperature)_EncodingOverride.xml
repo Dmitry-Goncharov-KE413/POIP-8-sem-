@@ -5,7 +5,39 @@
         <encoding>Win-1251</encoding>
     </override>
     <override>
+        <path>D:\POIP\POIP-8-sem-\Lab_4\Application\Parameters\IMeasureParameter.h</path>
+        <encoding>Win-1251</encoding>
+    </override>
+    <override>
+        <path>D:\POIP\POIP-8-sem-\Lab_4\Application\Parameters\Temperature.cpp</path>
+        <encoding>Win-1251</encoding>
+    </override>
+    <override>
+        <path>D:\POIP\POIP-8-sem-\Lab_4\Components\Button\Button.cpp</path>
+        <encoding>Win-1251</encoding>
+    </override>
+    <override>
+        <path>D:\POIP\POIP-8-sem-\Lab_4\Hardware\ADC\ADC.cpp</path>
+        <encoding>Win-1251</encoding>
+    </override>
+    <override>
+        <path>D:\POIP\POIP-8-sem-\Lab_4\Hardware\ADC\ADC.h</path>
+        <encoding>Win-1251</encoding>
+    </override>
+    <override>
+        <path>D:\POIP\POIP-8-sem-\Lab_4\Hardware\ADC\IADC.h</path>
+        <encoding>Win-1251</encoding>
+    </override>
+    <override>
         <path>D:\POIP\POIP-8-sem-\Lab_4\Hardware\Sender\Sender.h</path>
+        <encoding>Win-1251</encoding>
+    </override>
+    <override>
+        <path>D:\POIP\POIP-8-sem-\Lab_4\Thread\InSender.cpp</path>
+        <encoding>Win-1251</encoding>
+    </override>
+    <override>
+        <path>D:\POIP\POIP-8-sem-\Lab_4\Thread\OutSender.cpp</path>
         <encoding>Win-1251</encoding>
     </override>
     <override>

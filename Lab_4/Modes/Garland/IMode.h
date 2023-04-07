@@ -3,9 +3,9 @@
 #define IMODE_H
 
 #include <array>
-#include "ILED.h"
+#include "Iled.h"
 
-using tArrayLeds = std::array<ILed*,4>; // убрать в Ledsconfig.h
+using tArrayLeds = std::array<ILed*,4>;
 
 class IMode
 {

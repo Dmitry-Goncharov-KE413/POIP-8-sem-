@@ -138,7 +138,7 @@ int main()
   NVIC::ISER1::Write(1U<<18U); // Allow of global Interruption of Timer 5
   TIM5::DIER::UIE::Value1::Set(); // Allow of Interrupt by overflow
 
-  // Подача 
+  // Подача тактирования на порты микроконтроллера
   RCC::AHB1ENR::GPIOCEN::Enable::Set(); // Подали тактирование на порт С
   RCC::AHB1ENR::GPIOAEN::Enable::Set(); // Подали тактирование на порт А
   
@@ -209,7 +209,7 @@ int main()
         // Ждем, пока завершится преобразование
       }
       //std::cout<<ADC1::DR::Get()<<std::endl;
-      std::cout<<voltage/1000<<','<<(voltage/100)%10<<(voltage/10)%10<<voltage%10<<std::endl;
+      //std::cout<<voltage/1000<<','<<(voltage/100)%10<<(voltage/10)%10<<voltage%10<<std::endl;
       
     }
   }

@@ -301,6 +301,8 @@ D:\POIP\POIP-8-sem-\Lab_3\Debug\BrowseInfo\startup.pbi: \
   D:\POIP\CortexLib\AbstractHardware\Registers\STM32F411\FieldValues\tim5fieldvalues.hpp \
   D:\POIP\CortexLib\AbstractHardware\Registers\STM32F411\gpiocregisters.hpp \
   D:\POIP\CortexLib\AbstractHardware\Registers\STM32F411\FieldValues\gpiocfieldvalues.hpp \
+  D:\POIP\CortexLib\AbstractHardware\Registers\STM32F411\gpioaregisters.hpp \
+  D:\POIP\CortexLib\AbstractHardware\Registers\STM32F411\FieldValues\gpioafieldvalues.hpp \
   D:\POIP\CortexLib\AbstractHardware\Registers\STM32F411\usart2registers.hpp \
   D:\POIP\CortexLib\AbstractHardware\Registers\STM32F411\FieldValues\usart2fieldvalues.hpp \
   D:\POIP\POIP-8-sem-\Lab_3\Hardware\Sender\Sender.h

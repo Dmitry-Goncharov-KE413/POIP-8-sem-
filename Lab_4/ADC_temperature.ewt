@@ -2846,6 +2846,57 @@
         </settings>
     </configuration>
     <group>
+        <name>Application</name>
+        <group>
+            <name>Parameters</name>
+            <file>
+                <name>$PROJ_DIR$\Application\Parameters\IMeasureParameter.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\Application\Parameters\Temperature.cpp</name>
+            </file>
+        </group>
+    </group>
+    <group>
+        <name>CMSIS</name>
+        <file>
+            <name>$PROJ_DIR$\CMSIS\cmsis_compiler.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\CMSIS\cmsis_iccarm.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\CMSIS\cmsis_version.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\CMSIS\core_cm3.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\CMSIS\core_cm33.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\CMSIS\core_cm4.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\CMSIS\core_cm4_simd.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\CMSIS\core_cmFunc.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\CMSIS\core_cmInstr.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\CMSIS\stm32f411xe.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\CMSIS\stm32f4xx.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\CMSIS\system_stm32f4xx.h</name>
+        </file>
+    </group>
+    <group>
         <name>Components</name>
         <group>
             <name>Button</name>
@@ -2881,6 +2932,15 @@
     <group>
         <name>Hardware</name>
         <group>
+            <name>ADC</name>
+            <file>
+                <name>$PROJ_DIR$\Hardware\ADC\ADC.cpp</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\Hardware\ADC\IADC.h</name>
+            </file>
+        </group>
+        <group>
             <name>Pin</name>
             <file>
                 <name>$PROJ_DIR$\Hardware\Pin\ipin.h</name>
@@ -2890,12 +2950,6 @@
             </file>
             <file>
                 <name>$PROJ_DIR$\Hardware\Pin\pinconfig.h</name>
-            </file>
-        </group>
-        <group>
-            <name>Receiver</name>
-            <file>
-                <name>$PROJ_DIR$\Hardware\Receiver\Receiver.h</name>
             </file>
         </group>
         <group>
@@ -2940,6 +2994,144 @@
                 <name>$PROJ_DIR$\Modes\TreeMode\TreeMode.cpp</name>
             </file>
         </group>
+    </group>
+    <group>
+        <name>Rtos</name>
+        <group>
+            <name>FreeRtos</name>
+            <group>
+                <name>include</name>
+                <file>
+                    <name>$PROJ_DIR$\Rtos\FreeRtos\include\croutine.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\Rtos\FreeRtos\include\deprecated_definitions.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\Rtos\FreeRtos\include\event_groups.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\Rtos\FreeRtos\include\FreeRTOS.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\Rtos\FreeRtos\include\list.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\Rtos\FreeRtos\include\mpu_prototypes.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\Rtos\FreeRtos\include\mpu_wrappers.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\Rtos\FreeRtos\include\portable.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\Rtos\FreeRtos\include\projdefs.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\Rtos\FreeRtos\include\queue.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\Rtos\FreeRtos\include\semphr.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\Rtos\FreeRtos\include\StackMacros.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\Rtos\FreeRtos\include\task.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\Rtos\FreeRtos\include\timers.h</name>
+                </file>
+            </group>
+            <group>
+                <name>portable</name>
+                <group>
+                    <name>Common</name>
+                </group>
+                <group>
+                    <name>IAR</name>
+                    <file>
+                        <name>$PROJ_DIR$\Rtos\FreeRtos\portable\IAR\ARM_CM4F\port.c</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\Rtos\FreeRtos\portable\IAR\ARM_CM4F\portasm.s</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\Rtos\FreeRtos\portable\IAR\ARM_CM4F\portmacro.h</name>
+                    </file>
+                </group>
+                <group>
+                    <name>MemMang</name>
+                </group>
+            </group>
+            <file>
+                <name>$PROJ_DIR$\Rtos\FreeRtos\croutine.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\Rtos\FreeRtos\event_groups.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\Rtos\FreeRtos\FreeRTOSConfig.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\Rtos\FreeRtos\list.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\Rtos\FreeRtos\queue.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\Rtos\FreeRtos\tasks.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\Rtos\FreeRtos\timers.c</name>
+            </file>
+        </group>
+        <group>
+            <name>Wrapper</name>
+            <group>
+                <name>FreeRtos</name>
+                <file>
+                    <name>$PROJ_DIR$\Rtos\wrapper\FreeRtos\rtosdefs.hpp</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\Rtos\wrapper\FreeRtos\rtoswrapper.hpp</name>
+                </file>
+            </group>
+            <file>
+                <name>$PROJ_DIR$\Rtos\wrapper\criticalsection.hpp</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\Rtos\wrapper\event.hpp</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\Rtos\wrapper\eventmode.hpp</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\Rtos\wrapper\interruptentry.hpp</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\Rtos\wrapper\mailbox.hpp</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\Rtos\wrapper\mutex.hpp</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\Rtos\wrapper\rtos.hpp</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\Rtos\wrapper\thread.hpp</name>
+            </file>
+        </group>
+    </group>
+    <group>
+        <name>Thread</name>
+        <file>
+            <name>$PROJ_DIR$\Thread\InSender.cpp</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Thread\OutSender.cpp</name>
+        </file>
     </group>
     <file>
         <name>$PROJ_DIR$\main.cpp</name>
