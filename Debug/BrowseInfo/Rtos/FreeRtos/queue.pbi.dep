@@ -1,0 +1,25 @@
+D:\DownloadsGoogle\dlu-kursocha\dlu-kursocha\Debug\BrowseInfo\Rtos\FreeRtos\queue.pbi: \
+  D:\DownloadsGoogle\dlu-kursocha\dlu-kursocha\Rtos\FreeRtos\queue.c \
+  R:\Program\IAR\arm\inc\c\stdlib.h R:\Program\IAR\arm\inc\c\ycheck.h \
+  R:\Program\IAR\arm\inc\c\yvals.h \
+  R:\Program\IAR\arm\inc\c\DLib_Defaults.h \
+  R:\Program\IAR\arm\inc\c\DLib_Config_Full.h \
+  R:\Program\IAR\arm\inc\c\DLib_Product.h \
+  R:\Program\IAR\arm\inc\c\ysizet.h \
+  R:\Program\IAR\arm\inc\c\DLib_Product_stdlib.h \
+  R:\Program\IAR\arm\inc\c\string.h \
+  R:\Program\IAR\arm\inc\c\DLib_Product_string.h \
+  D:\DownloadsGoogle\dlu-kursocha\dlu-kursocha\Rtos\FreeRtos\include\FreeRTOS.h \
+  R:\Program\IAR\arm\inc\c\stddef.h R:\Program\IAR\arm\inc\c\stdint.h \
+  D:\DownloadsGoogle\dlu-kursocha\dlu-kursocha\Rtos\FreeRtos\include\..\FreeRTOSConfig.h \
+  D:\DownloadsGoogle\dlu-kursocha\dlu-kursocha\Rtos\FreeRtos\include\projdefs.h \
+  D:\DownloadsGoogle\dlu-kursocha\dlu-kursocha\Rtos\FreeRtos\include\portable.h \
+  D:\DownloadsGoogle\dlu-kursocha\dlu-kursocha\Rtos\FreeRtos\include\deprecated_definitions.h \
+  D:\DownloadsGoogle\dlu-kursocha\dlu-kursocha\Rtos\FreeRtos\portable\IAR\ARM_CM4F\portmacro.h \
+  R:\Program\IAR\arm\inc\c\aarch32\intrinsics.h \
+  R:\Program\IAR\arm\inc\c\aarch32\iccarm_builtin.h \
+  R:\Program\IAR\arm\inc\c\aarch32\iar_intrinsics_common.h \
+  D:\DownloadsGoogle\dlu-kursocha\dlu-kursocha\Rtos\FreeRtos\include\mpu_wrappers.h \
+  D:\DownloadsGoogle\dlu-kursocha\dlu-kursocha\Rtos\FreeRtos\include\task.h \
+  D:\DownloadsGoogle\dlu-kursocha\dlu-kursocha\Rtos\FreeRtos\include\list.h \
+  D:\DownloadsGoogle\dlu-kursocha\dlu-kursocha\Rtos\FreeRtos\include\queue.h

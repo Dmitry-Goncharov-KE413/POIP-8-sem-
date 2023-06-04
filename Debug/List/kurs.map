@@ -1,0 +1,1991 @@
+###############################################################################
+#
+# IAR ELF Linker V9.30.1.335/W64 for ARM                  04/Jun/2023  20:52:50
+# Copyright 2007-2022 IAR Systems AB.
+#
+#    Output file  =
+#        D:\DownloadsGoogle\dlu-kursocha\Kursovow\Debug\Exe\kurs.out
+#    Map file     =
+#        D:\DownloadsGoogle\dlu-kursocha\Kursovow\Debug\List\kurs.map
+#    Command line =
+#        -f D:\DownloadsGoogle\dlu-kursocha\Kursovow\Debug\Exe\kurs.out.rsp
+#        (D:\DownloadsGoogle\dlu-kursocha\Kursovow\Debug\Obj\Hardware\ADC\ADC.o
+#        D:\DownloadsGoogle\dlu-kursocha\Kursovow\Debug\Obj\Rtos\FreeRtos\croutine.o
+#        D:\DownloadsGoogle\dlu-kursocha\Kursovow\Debug\Obj\Rtos\FreeRtos\event_groups.o
+#        D:\DownloadsGoogle\dlu-kursocha\Kursovow\Debug\Obj\Thread\InSender.o
+#        D:\DownloadsGoogle\dlu-kursocha\Kursovow\Debug\Obj\Rtos\FreeRtos\list.o
+#        D:\DownloadsGoogle\dlu-kursocha\Kursovow\Debug\Obj\main.o
+#        D:\DownloadsGoogle\dlu-kursocha\Kursovow\Debug\Obj\Rtos\FreeRtos\portable\IAR\ARM_CM4F\port.o
+#        D:\DownloadsGoogle\dlu-kursocha\Kursovow\Debug\Obj\Rtos\FreeRtos\portable\IAR\ARM_CM4F\portasm.o
+#        D:\DownloadsGoogle\dlu-kursocha\Kursovow\Debug\Obj\Thread\PowerRegulationTask.o
+#        D:\DownloadsGoogle\dlu-kursocha\Kursovow\Debug\Obj\Hardware\PWM\PWM.o
+#        D:\DownloadsGoogle\dlu-kursocha\Kursovow\Debug\Obj\Rtos\FreeRtos\queue.o
+#        D:\DownloadsGoogle\dlu-kursocha\Kursovow\Debug\Obj\StartUp.o
+#        D:\DownloadsGoogle\dlu-kursocha\Kursovow\Debug\Obj\Rtos\FreeRtos\tasks.o
+#        D:\DownloadsGoogle\dlu-kursocha\Kursovow\Debug\Obj\Rtos\FreeRtos\timers.o
+#        --no_out_extension -o
+#        D:\DownloadsGoogle\dlu-kursocha\Kursovow\Debug\Exe\kurs.out --redirect
+#        _Printf=_PrintfFullNoMb --redirect _Scanf=_ScanfFullNoMb --map
+#        D:\DownloadsGoogle\dlu-kursocha\Kursovow\Debug\List\kurs.map --config
+#        R:\Program\IAR\arm/config/linker/ST/stm32f411xE.icf --semihosting
+#        --entry __iar_program_start --vfe --text_out locale --cpu=Cortex-M4
+#        --fpu=VFPv4_sp)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor                     = *
+__CPP_Exceptions              = Disabled
+__CPP_Language                = C++14
+__CPP_Library                 = libc++
+__CPP_Runtime                 = 1
+__Heap_Handler                = Basic
+__SystemLibrary               = DLib
+__dlib_dynamic_initialization = normal
+__dlib_version                = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because --advanced_heap
+was not specified and the application did not appear to
+be primarily optimized for speed.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at address 0x800'0000 { ro section .intvec };
+"P1":  place in [from 0x800'0000 to 0x807'ffff] { ro };
+define block CSTACK with size = 8K, alignment = 8 { };
+define block HEAP with size = 8K, alignment = 8 { };
+"P2":  place in [from 0x2000'0000 to 0x2001'ffff] {
+          rw, block CSTACK, block HEAP };
+initialize by copy { rw };
+
+  Section                Kind         Address    Size  Object
+  -------                ----         -------    ----  ------
+"A0":                                           0x11c
+  .intvec                const     0x800'0000   0x11c  StartUp.o [1]
+                                 - 0x800'011c   0x11c
+
+"P1":                                          0x728c
+  .text                  ro code   0x800'011c   0xeaa  xprintffull_nomb.o [7]
+  .text                  ro code   0x800'0fc6    0x2a  copy_init3.o [11]
+  .text                  ro code   0x800'0ff0    0x16  strchr.o [11]
+  .text                  ro code   0x800'1006    0x1a  xsnprout.o [7]
+  .text                  ro code   0x800'1020    0x40  xfail_s.o [7]
+  .text                  ro code   0x800'1060    0x36  strlen.o [11]
+  .text                  ro code   0x800'1096     0x6  ios.instantiations.o [8]
+  .text                  ro code   0x800'109c    0x58  memchr.o [11]
+  .text                  ro code   0x800'10f4    0xa6  ABImemcpy.o [11]
+  .rodata                const     0x800'119a     0x2  InSender.o [6]
+  .text                  ro code   0x800'119c    0x70  frexp.o [10]
+  .text                  ro code   0x800'120c    0x34  DblCmpLe.o [10]
+  .text                  ro code   0x800'1240    0x34  DblCmpGe.o [10]
+  .text                  ro code   0x800'1274   0x13a  ldexp.o [10]
+  .rodata                const     0x800'13ae     0x2  xlocale_c.o [7]
+  .text                  ro code   0x800'13b0    0x36  DblToS32.o [10]
+  .rodata                const     0x800'13e6     0x2  xlocale_c.o [7]
+  .text                  ro code   0x800'13e8    0x22  S32ToDbl.o [10]
+  .text                  ro code   0x800'140a     0x2  StartUp.o [1]
+  .text                  ro code   0x800'140c   0x24e  DblAddSub.o [10]
+  .rodata                const     0x800'165a     0x1  unwind_debug.o [12]
+  .rodata                const     0x800'165b     0x1  locale.o [8]
+  .text                  ro code   0x800'165c   0x246  DblDiv.o [10]
+  .rodata                const     0x800'18a2     0x1  xlocale_c.o [7]
+  .text                  ro code   0x800'18a4    0x22  DblToU32.o [10]
+  .text                  ro code   0x800'18c8    0x1c  U32ToDbl.o [10]
+  .text                  ro code   0x800'18e4   0x1aa  DblMul.o [10]
+  .text                  ro code   0x800'1a90    0x18  xlocale_c.o [7]
+  .text                  ro code   0x800'1aa8   0x274  I64DivMod.o [11]
+  .text                  ro code   0x800'1d1c     0x6  abort.o [7]
+  .text                  ro code   0x800'1d24    0x18  errno.o [7]
+  .text                  ro code   0x800'1d3c     0x2  I64DivZer.o [11]
+  .text                  ro code   0x800'1d40    0x14  exit.o [12]
+  .text                  ro code   0x800'1d54     0x4  tp_nothreads.o [7]
+  .text                  ro code   0x800'1d58    0x2c  iarttio.o [12]
+  .text                  ro code   0x800'1d84     0x8  XShttio.o [7]
+  .text                  ro code   0x800'1d8c   0x85c  locale.o [8]
+  .text                  ro code   0x800'25e8     0x4  delop4_0.o [9]
+  .text                  ro code   0x800'25ec     0x2  memory.o [8]
+  .text                  ro code   0x800'25ee    0x32  locale.o [8]
+  .text                  ro code   0x800'2620    0x26  locale.o [8]
+  .text                  ro code   0x800'2646    0x56  ios.o [8]
+  .text                  ro code   0x800'269c    0x22  locale.o [8]
+  .text                  ro code   0x800'26c0    0x18  locale.o [8]
+  .text                  ro code   0x800'26d8    0x18  locale.o [8]
+  .text                  ro code   0x800'26f0    0x18  locale.o [8]
+  .text                  ro code   0x800'2708    0x18  locale.o [8]
+  .text                  ro code   0x800'2720    0x18  locale.o [8]
+  .text                  ro code   0x800'2738    0x18  locale.o [8]
+  .text                  ro code   0x800'2750    0x18  locale.o [8]
+  .text                  ro code   0x800'2768    0x18  locale.o [8]
+  .text                  ro code   0x800'2780    0x18  locale.o [8]
+  .text                  ro code   0x800'2798    0x18  locale.o [8]
+  .text                  ro code   0x800'27b0    0x18  locale.o [8]
+  .text                  ro code   0x800'27c8    0x18  locale.o [8]
+  .text                  ro code   0x800'27e0    0x18  locale.o [8]
+  .text                  ro code   0x800'27f8    0x18  locale.o [8]
+  .text                  ro code   0x800'2810    0x18  locale.o [8]
+  .text                  ro code   0x800'2828    0x18  locale.o [8]
+  .text                  ro code   0x800'2840    0x18  locale.o [8]
+  .text                  ro code   0x800'2858    0x18  locale.o [8]
+  .text                  ro code   0x800'2870    0x28  locale.o [8]
+  .text                  ro code   0x800'2898    0x28  locale.o [8]
+  .text                  ro code   0x800'28c0    0x24  locale.o [8]
+  .text                  ro code   0x800'28e4    0x24  locale.o [8]
+  .text                  ro code   0x800'2908    0x18  locale.o [8]
+  .text                  ro code   0x800'2920    0x18  locale.o [8]
+  .text                  ro code   0x800'2938    0x32  InSender.o [6]
+  .text                  ro code   0x800'296a     0x4  locale.o [8]
+  .text                  ro code   0x800'296e    0x2a  locale.o [8]
+  .text                  ro code   0x800'2998     0xc  locale.o [8]
+  .text                  ro code   0x800'29a4    0xac  locale.o [8]
+  .text                  ro code   0x800'2a50    0x1c  locale.o [8]
+  .text                  ro code   0x800'2a6c    0x1a  locale.o [8]
+  .text                  ro code   0x800'2a86    0x18  mutex.o [8]
+  .text                  ro code   0x800'2a9e     0x4  delaop_0.o [9]
+  .text                  ro code   0x800'2aa4    0x10  locale.o [8]
+  .text                  ro code   0x800'2ab4    0x96  iar_locale.o [8]
+  .text                  ro code   0x800'2b4c    0xa4  iar_newlocale.o [8]
+  .text                  ro code   0x800'2bf0    0x18  InSender.o [6]
+  .text                  ro code   0x800'2c08    0x32  locale.o [8]
+  .text                  ro code   0x800'2c3a     0xa  delop_0.o [9]
+  .text                  ro code   0x800'2c44    0x2a  locale.o [8]
+  .text                  ro code   0x800'2c6e    0x20  locale.o [8]
+  .text                  ro code   0x800'2c8e     0x4  string.o [8]
+  .text                  ro code   0x800'2c94    0x24  newop_0.o [9]
+  .text                  ro code   0x800'2cb8     0xe  InSender.o [6]
+  .text                  ro code   0x800'2cc6     0x8  InSender.o [6]
+  .text                  ro code   0x800'2cce     0xa  InSender.o [6]
+  .text                  ro code   0x800'2cd8     0xe  InSender.o [6]
+  .text                  ro code   0x800'2ce6     0x8  InSender.o [6]
+  .text                  ro code   0x800'2cee     0xc  locale.o [8]
+  .text                  ro code   0x800'2cfa    0x16  locale.o [8]
+  .text                  ro code   0x800'2d10    0x3e  locale.o [8]
+  .text                  ro code   0x800'2d4e    0x2c  locale.o [8]
+  .text                  ro code   0x800'2d7a     0xa  locale.o [8]
+  .text                  ro code   0x800'2d84    0x28  locale.o [8]
+  .text                  ro code   0x800'2dac    0x10  locale.o [8]
+  .text                  ro code   0x800'2dbc    0x3c  vsnprint.o [7]
+  .text                  ro code   0x800'2df8   0x13c  heap0.o [7]
+  .text                  ro code   0x800'2f34     0x4  heaptramp0.o [7]
+  .text                  ro code   0x800'2f38   0x1a0  iar_newlocale.o [8]
+  .text                  ro code   0x800'30d8     0xc  iar_newlocale.o [8]
+  .text                  ro code   0x800'30e4     0x8  InSender.o [6]
+  .text                  ro code   0x800'30ec    0x3e  string.o [8]
+  .text                  ro code   0x800'312a     0x6  locale.o [8]
+  .text                  ro code   0x800'3130     0x4  vector.o [8]
+  .text                  ro code   0x800'3134    0x2a  locale.o [8]
+  .text                  ro code   0x800'315e     0x4  nomemory.o [9]
+  .text                  ro code   0x800'3162     0x8  InSender.o [6]
+  .text                  ro code   0x800'316a     0x8  InSender.o [6]
+  .text                  ro code   0x800'3172     0xe  InSender.o [6]
+  .text                  ro code   0x800'3180     0xc  string.o [8]
+  .text                  ro code   0x800'318c    0x2c  xgetmemchunk.o [7]
+  .text                  ro code   0x800'31b8    0x20  iar_newlocale.o [8]
+  .text                  ro code   0x800'31d8    0x20  iar_newlocale.o [8]
+  .text                  ro code   0x800'31f8     0x2  InSender.o [6]
+  .text                  ro code   0x800'31fa     0xe  string.o [8]
+  .text                  ro code   0x800'3208     0x2  InSender.o [6]
+  .text                  ro code   0x800'320a     0x2  InSender.o [6]
+  .text                  ro code   0x800'320c    0x20  InSender.o [6]
+  .text                  ro code   0x800'322c     0x8  InSender.o [6]
+  .text                  ro code   0x800'3234     0x8  InSender.o [6]
+  .text                  ro code   0x800'323c     0x8  InSender.o [6]
+  .text                  ro code   0x800'3244     0x8  InSender.o [6]
+  .text                  ro code   0x800'324c     0x4  delop6_0.o [9]
+  .text                  ro code   0x800'3250   0x824  tasks.o [4]
+  .text                  ro code   0x800'3a74    0x98  list.o [4]
+  .text                  ro code   0x800'3b0c   0x160  port.o [5]
+  .text                  ro code   0x800'3c6c   0x394  timers.o [4]
+  .text                  ro code   0x800'4000    0x24  port.o [5]
+  CODE                   ro code   0x800'4024    0xa8  portasm.o [5]
+  .text                  ro code   0x800'40cc   0x612  queue.o [4]
+  .rodata                const     0x800'46e0   0x400  locale.o [8]
+  .text                  ro code   0x800'4ae0   0x200  locale.o [8]
+  .text                  ro code   0x800'4ce0    0x1e  InSender.o [6]
+  .text                  ro code   0x800'4cfe    0x18  locale.o [8]
+  .text                  ro code   0x800'4d16     0xa  locale.o [8]
+  .text                  ro code   0x800'4d20    0x1e  InSender.o [6]
+  .text                  ro code   0x800'4d3e     0xa  InSender.o [6]
+  .text                  ro code   0x800'4d48     0xa  InSender.o [6]
+  .text                  ro code   0x800'4d52     0xc  InSender.o [6]
+  .text                  ro code   0x800'4d5e     0x8  InSender.o [6]
+  .text                  ro code   0x800'4d66     0x2  InSender.o [6]
+  .text                  ro code   0x800'4d68   0x180  main.o [1]
+  .text                  ro code   0x800'4ee8     0x8  main.o [1]
+  .text                  ro code   0x800'4ef0    0x30  ADC.o [2]
+  .text                  ro code   0x800'4f20    0x1c  main.o [1]
+  .text                  ro code   0x800'4f3c    0x20  main.o [1]
+  .text                  ro code   0x800'4f5c    0x54  PWM.o [3]
+  .text                  ro code   0x800'4fb0    0x54  PowerRegulationTask.o [6]
+  .text                  ro code   0x800'5004    0x70  InSender.o [6]
+  .text                  ro code   0x800'5074    0x14  main.o [1]
+  .text                  ro code   0x800'5088    0x14  main.o [1]
+  .text                  ro code   0x800'509c    0x14  main.o [1]
+  .text                  ro code   0x800'50b0    0x14  main.o [1]
+  .text                  ro code   0x800'50c4    0x14  main.o [1]
+  .text                  ro code   0x800'50d8    0x10  main.o [1]
+  .text                  ro code   0x800'50e8    0x14  main.o [1]
+  .text                  ro code   0x800'50fc    0x14  main.o [1]
+  .text                  ro code   0x800'5110    0x14  main.o [1]
+  .text                  ro code   0x800'5124    0x14  main.o [1]
+  .text                  ro code   0x800'5138    0x14  main.o [1]
+  .text                  ro code   0x800'514c    0x14  main.o [1]
+  .text                  ro code   0x800'5160    0x14  main.o [1]
+  .text                  ro code   0x800'5174    0x14  main.o [1]
+  .text                  ro code   0x800'5188    0x14  main.o [1]
+  .text                  ro code   0x800'519c     0xc  main.o [1]
+  .text                  ro code   0x800'51a8    0x10  main.o [1]
+  .text                  ro code   0x800'51b8    0x14  main.o [1]
+  .text                  ro code   0x800'51cc    0x14  main.o [1]
+  .text                  ro code   0x800'51e0     0xc  main.o [1]
+  .text                  ro code   0x800'51ec     0xc  main.o [1]
+  .text                  ro code   0x800'51f8     0xc  main.o [1]
+  .text                  ro code   0x800'5204    0x14  main.o [1]
+  .text                  ro code   0x800'5218    0x14  main.o [1]
+  .text                  ro code   0x800'522c    0x14  main.o [1]
+  .text                  ro code   0x800'5240     0xc  main.o [1]
+  .text                  ro code   0x800'524c    0x14  main.o [1]
+  .text                  ro code   0x800'5260    0x14  main.o [1]
+  .text                  ro code   0x800'5274    0x14  main.o [1]
+  .text                  ro code   0x800'5288    0x14  main.o [1]
+  .text                  ro code   0x800'529c    0x10  main.o [1]
+  .text                  ro code   0x800'52ac    0x14  InSender.o [6]
+  .text                  ro code   0x800'52c0    0x14  InSender.o [6]
+  .text                  ro code   0x800'52d4    0x14  main.o [1]
+  .text                  ro code   0x800'52e8    0x10  main.o [1]
+  .text                  ro code   0x800'52f8     0xc  main.o [1]
+  .text                  ro code   0x800'5304    0x14  main.o [1]
+  .text                  ro code   0x800'5318    0x24  main.o [1]
+  .text                  ro code   0x800'533c    0x24  main.o [1]
+  .text                  ro code   0x800'5360     0x8  main.o [1]
+  .text                  ro code   0x800'5368    0x24  ABIassert.o [12]
+  .text                  ro code   0x800'538c    0x5a  expf.o [10]
+  .text                  ro code   0x800'53e6     0x8  ADC.o [2]
+  .text                  ro code   0x800'53f0    0x44  ADC.o [2]
+  .text                  ro code   0x800'5434     0x8  PWM.o [3]
+  .text                  ro code   0x800'543c     0xc  PWM.o [3]
+  .text                  ro code   0x800'5448     0x8  InSender.o [6]
+  .text                  ro code   0x800'5450    0x1a  InSender.o [6]
+  .text                  ro code   0x800'546a    0x1a  InSender.o [6]
+  .text                  ro code   0x800'5484     0xa  cxxabi.o [9]
+  .text                  ro code   0x800'5490    0x80  InSender.o [6]
+  .text                  ro code   0x800'5510     0x2  main.o [1]
+  .text                  ro code   0x800'5514    0x2c  main.o [1]
+  .text                  ro code   0x800'5540    0x2c  main.o [1]
+  .text                  ro code   0x800'556c     0x8  main.o [1]
+  .text                  ro code   0x800'5574    0xde  xexpf.o [10]
+  .text                  ro code   0x800'5652     0x2  ADC.o [2]
+  .text                  ro code   0x800'5654     0x8  ADC.o [2]
+  .text                  ro code   0x800'565c    0x10  ADC.o [2]
+  .text                  ro code   0x800'566c    0x10  ADC.o [2]
+  .text                  ro code   0x800'567c    0x10  ADC.o [2]
+  .text                  ro code   0x800'568c    0x14  ADC.o [2]
+  .text                  ro code   0x800'56a0    0x14  ADC.o [2]
+  .text                  ro code   0x800'56b4    0x14  ADC.o [2]
+  .text                  ro code   0x800'56c8    0x10  ADC.o [2]
+  .text                  ro code   0x800'56d8    0x10  ADC.o [2]
+  .text                  ro code   0x800'56e8     0xc  ADC.o [2]
+  .text                  ro code   0x800'56f4     0xc  ADC.o [2]
+  .text                  ro code   0x800'5700     0xc  ADC.o [2]
+  .text                  ro code   0x800'570c    0x14  ADC.o [2]
+  .text                  ro code   0x800'5720     0x2  PWM.o [3]
+  .text                  ro code   0x800'5722     0xe  InSender.o [6]
+  .text                  ro code   0x800'5730     0xc  InSender.o [6]
+  .text                  ro code   0x800'573c     0x4  InSender.o [6]
+  .text                  ro code   0x800'5740     0x8  InSender.o [6]
+  .text                  ro code   0x800'5748    0x26  InSender.o [6]
+  .text                  ro code   0x800'5770    0xa0  cppinit.o [7]
+  .text                  ro code   0x800'5810    0x20  InSender.o [6]
+  .text                  ro code   0x800'5830    0x9c  ios.instantiations.o [8]
+  .text                  ro code   0x800'58cc     0xa  InSender.o [6]
+  .text                  ro code   0x800'58d6    0x1a  InSender.o [6]
+  .text                  ro code   0x800'58f0     0xe  InSender.o [6]
+  .text                  ro code   0x800'5900    0x40  InSender.o [6]
+  .text                  ro code   0x800'5940    0x20  InSender.o [6]
+  .text                  ro code   0x800'5960    0x10  ADC.o [2]
+  .text                  ro code   0x800'5970     0x8  InSender.o [6]
+  .text                  ro code   0x800'5978    0x20  InSender.o [6]
+  .text                  ro code   0x800'5998     0x2  InSender.o [6]
+  .text                  ro code   0x800'599a     0x8  InSender.o [6]
+  .text                  ro code   0x800'59a2     0x8  InSender.o [6]
+  .text                  ro code   0x800'59aa     0x8  InSender.o [6]
+  .text                  ro code   0x800'59b2    0x2a  InSender.o [6]
+  .text                  ro code   0x800'59dc    0x42  ios.instantiations.o [8]
+  .text                  ro code   0x800'5a20    0xb4  ios.o [8]
+  .text                  ro code   0x800'5ad4    0x1a  ios.instantiations.o [8]
+  .text                  ro code   0x800'5af0    0x48  FltToDbl.o [10]
+  .text                  ro code   0x800'5b38     0xc  ios.instantiations.o [8]
+  .text                  ro code   0x800'5b44    0x94  ios.instantiations.o [8]
+  .text                  ro code   0x800'5bd8    0x34  ios.instantiations.o [8]
+  .text                  ro code   0x800'5c0c    0x1a  string.o [8]
+  .text                  ro code   0x800'5c26     0x2  InSender.o [6]
+  .text                  ro code   0x800'5c28    0x1e  InSender.o [6]
+  .text                  ro code   0x800'5c46    0x74  InSender.o [6]
+  .text                  ro code   0x800'5cbc    0x10  InSender.o [6]
+  .text                  ro code   0x800'5ccc    0x10  InSender.o [6]
+  .text                  ro code   0x800'5cdc     0xc  InSender.o [6]
+  .text                  ro code   0x800'5ce8     0xc  InSender.o [6]
+  .text                  ro code   0x800'5cf4    0x26  InSender.o [6]
+  .text                  ro code   0x800'5d1a     0xc  ios.instantiations.o [8]
+  .text                  ro code   0x800'5d26     0xa  InSender.o [6]
+  .text                  ro code   0x800'5d30     0x6  InSender.o [6]
+  .text                  ro code   0x800'5d36     0x6  InSender.o [6]
+  .text                  ro code   0x800'5d3c     0x2  InSender.o [6]
+  .text                  ro code   0x800'5d3e     0xe  InSender.o [6]
+  .text                  ro code   0x800'5d4c    0x18  InSender.o [6]
+  .text                  ro code   0x800'5d64    0x24  InSender.o [6]
+  .text                  ro code   0x800'5d88    0x28  InSender.o [6]
+  .text                  ro code   0x800'5db0    0x54  ios.instantiations.o [8]
+  .text                  ro code   0x800'5e04    0x2c  ios.instantiations.o [8]
+  .text                  ro code   0x800'5e30     0x4  arm_exceptions_uncaught_c.o [11]
+  .text                  ro code   0x800'5e34    0x50  ios.instantiations.o [8]
+  .text                  ro code   0x800'5e84    0x66  string.o [8]
+  .text                  ro code   0x800'5eea     0x2  InSender.o [6]
+  .text                  ro code   0x800'5eec     0x8  InSender.o [6]
+  .text                  ro code   0x800'5ef4     0xc  InSender.o [6]
+  .text                  ro code   0x800'5f00     0x6  InSender.o [6]
+  .text                  ro code   0x800'5f08    0x20  InSender.o [6]
+  .text                  ro code   0x800'5f28     0x2  ios.instantiations.o [8]
+  .text                  ro code   0x800'5f2a     0x8  InSender.o [6]
+  .text                  ro code   0x800'5f32     0x8  InSender.o [6]
+  .text                  ro code   0x800'5f3a    0x16  InSender.o [6]
+  .text                  ro code   0x800'5f50     0x4  ios.instantiations.o [8]
+  .text                  ro code   0x800'5f54    0x14  ios.instantiations.o [8]
+  .text                  ro code   0x800'5f68     0xe  string.o [8]
+  .text                  ro code   0x800'5f78    0xc4  string.o [8]
+  .text                  ro code   0x800'603c    0x18  InSender.o [6]
+  .text                  ro code   0x800'6054    0x18  ios.instantiations.o [8]
+  .text                  ro code   0x800'606c     0xe  InSender.o [6]
+  .text                  ro code   0x800'607c     0xc  InSender.o [6]
+  .text                  ro code   0x800'6088    0x24  ios.instantiations.o [8]
+  .text                  ro code   0x800'60ac     0x2  InSender.o [6]
+  .text                  ro code   0x800'60ae     0x8  InSender.o [6]
+  .text                  ro code   0x800'60b6     0x2  InSender.o [6]
+  .text                  ro code   0x800'60b8   0x158  locale.o [8]
+  .text                  ro code   0x800'6210    0x14  locale.o [8]
+  .text                  ro code   0x800'6224    0xa2  ios.instantiations.o [8]
+  .text                  ro code   0x800'62c6    0x50  ios.instantiations.o [8]
+  .text                  ro code   0x800'6318    0x66  ABImemset.o [11]
+  .text                  ro code   0x800'637e    0xce  ios.instantiations.o [8]
+  .text                  ro code   0x800'644c    0x5a  string.o [8]
+  .text                  ro code   0x800'64a6    0x36  string.o [8]
+  .text                  ro code   0x800'64dc     0x8  ios.instantiations.o [8]
+  .text                  ro code   0x800'64e4    0x20  ios.instantiations.o [8]
+  .text                  ro code   0x800'6504    0xa0  string.o [8]
+  .text                  ro code   0x800'65a4    0x5e  string.o [8]
+  .text                  ro code   0x800'6602     0xe  string.o [8]
+  Initializer bytes      const     0x800'6610    0x7c  <for P2-1>
+  .text                  ro code   0x800'668c    0x60  ios.instantiations.o [8]
+  .rodata                const     0x800'66ec    0x54  locale.o [8]
+  .rodata                const     0x800'6740    0x54  locale.o [8]
+  .rodata                const     0x800'6794    0x48  xlocale_c.o [7]
+  .rodata                const     0x800'67dc    0x44  locale.o [8]
+  .rodata                const     0x800'6820    0x44  xexpf.o [10]
+  .text                  ro code   0x800'6864    0x44  iar_newlocale.o [8]
+  .rodata                const     0x800'68a8    0x40  ios.instantiations.o [8]
+  .rodata                const     0x800'68e8    0x40  ios.instantiations.o [8]
+  .rodata                const     0x800'6928    0x40  locale.o [8]
+  .rodata                const     0x800'6968    0x40  locale.o [8]
+  .text                  ro code   0x800'69a8    0x40  StartUp.o [1]
+  .text                  ro code   0x800'69e8    0x22  fpinit_M.o [10]
+  .text                  ro code   0x800'6a0c    0x1e  cmain.o [11]
+  .text                  ro code   0x800'6a2a     0x4  low_level_init.o [7]
+  .text                  ro code   0x800'6a30    0x28  data_init.o [11]
+  .text                  ro code   0x800'6a58     0x4  exit.o [7]
+  .text                  ro code   0x800'6a5c     0xe  cexit.o [11]
+  .rodata                const     0x800'6a6c    0x38  locale.o [8]
+  .rodata                const     0x800'6aa4    0x38  locale.o [8]
+  .rodata                const     0x800'6adc    0x38  locale.o [8]
+  .rodata                const     0x800'6b14    0x38  locale.o [8]
+  .rodata                const     0x800'6b4c    0x38  xlocale_c.o [7]
+  .text                  ro code   0x800'6b84    0x38  zero_init3.o [11]
+  .rodata                const     0x800'6bbc    0x34  main.o [1]
+  .rodata                const     0x800'6bf0    0x34  locale.o [8]
+  .rodata                const     0x800'6c24    0x34  locale.o [8]
+  .rodata                const     0x800'6c58    0x34  locale.o [8]
+  .rodata                const     0x800'6c8c    0x30  locale.o [8]
+  .rodata                const     0x800'6cbc    0x30  locale.o [8]
+  .rodata                const     0x800'6cec    0x30  locale.o [8]
+  .rodata                const     0x800'6d1c    0x30  locale.o [8]
+  .text                  ro code   0x800'6d4c    0x30  main.o [1]
+  .rodata                const     0x800'6d7c    0x28  ios.instantiations.o [8]
+  .rodata                const     0x800'6da4    0x28  locale.o [8]
+  .rodata                const     0x800'6dcc    0x28  locale.o [8]
+  .text                  ro code   0x800'6df4    0x28  main.o [1]
+  .text                  ro code   0x800'6e1c    0x26  iar_newlocale.o [8]
+  .rodata                const     0x800'6e44    0x24  locale.o [8]
+  .rodata                const     0x800'6e68    0x24  locale.o [8]
+  .iar.init_table        const     0x800'6e8c    0x28  - Linker created -
+  .rodata                const     0x800'6eb4    0x20  locale.o [8]
+  .rodata                const     0x800'6ed4    0x20  locale.o [8]
+  .rodata                const     0x800'6ef4    0x20  locale.o [8]
+  .rodata                const     0x800'6f14    0x20  locale.o [8]
+  .text                  ro code   0x800'6f34    0x20  cmain_call_ctors.o [11]
+  .text                  ro code   0x800'6f54    0x1e  locale.o [8]
+  .text                  ro code   0x800'6f72    0x1e  locale.o [8]
+  .rodata                const     0x800'6f90    0x1c  locale.o [8]
+  .rodata                const     0x800'6fac    0x1c  locale.o [8]
+  .rodata                const     0x800'6fc8    0x1c  locale.o [8]
+  .rodata                const     0x800'6fe4    0x1c  locale.o [8]
+  .text                  ro code   0x800'7000    0x1c  locale.o [8]
+  .rodata                const     0x800'701c    0x18  locale.o [8]
+  .rodata                const     0x800'7034    0x18  locale.o [8]
+  .text                  ro code   0x800'704c    0x18  StartUp.o [1]
+  .text                  ro code   0x800'7064    0x10  StartUp.o [1]
+  .text                  ro code   0x800'7074    0x10  StartUp.o [1]
+  .rodata                const     0x800'7084    0x14  main.o [1]
+  .rodata                const     0x800'7098    0x14  ios.instantiations.o [8]
+  .rodata                const     0x800'70ac    0x14  ios.instantiations.o [8]
+  .rodata                const     0x800'70c0    0x14  locale.o [8]
+  .rodata                const     0x800'70d4    0x14  locale.o [8]
+  .text                  ro code   0x800'70e8    0x14  main.o [1]
+  .text                  ro code   0x800'70fc     0x8  main.o [1]
+  .text                  ro code   0x800'7104    0x14  locale.o [8]
+  .text                  ro code   0x800'7118    0x14  locale.o [8]
+  .text                  ro code   0x800'712c    0x14  locale.o [8]
+  .text                  ro code   0x800'7140    0x14  locale.o [8]
+  .text                  ro code   0x800'7154    0x14  locale.o [8]
+  .text                  ro code   0x800'7168    0x14  locale.o [8]
+  .text                  ro code   0x800'717c    0x14  locale.o [8]
+  .text                  ro code   0x800'7190    0x14  locale.o [8]
+  .text                  ro code   0x800'71a4    0x14  locale.o [8]
+  .text                  ro code   0x800'71b8    0x14  locale.o [8]
+  .text                  ro code   0x800'71cc    0x14  locale.o [8]
+  .text                  ro code   0x800'71e0    0x14  locale.o [8]
+  .text                  ro code   0x800'71f4    0x14  locale.o [8]
+  .text                  ro code   0x800'7208    0x14  locale.o [8]
+  .text                  ro code   0x800'721c    0x14  locale.o [8]
+  .text                  ro code   0x800'7230    0x14  locale.o [8]
+  .text                  ro code   0x800'7244    0x14  locale.o [8]
+  .text                  ro code   0x800'7258    0x14  locale.o [8]
+  .text                  ro code   0x800'726c    0x14  locale.o [8]
+  .text                  ro code   0x800'7280    0x14  locale.o [8]
+  .rodata                const     0x800'7294    0x10  ios.instantiations.o [8]
+  .rodata                const     0x800'72a4    0x10  ios.instantiations.o [8]
+  .rodata                const     0x800'72b4    0x10  ios.o [8]
+  SHT$$PREINIT_ARRAY               0x800'72c4     0x0  <Block>
+  SHT$$INIT_ARRAY                  0x800'72c4    0x10  <Block>
+    .init_array          const     0x800'72c4     0x4  InSender.o [6]
+    .init_array          const     0x800'72c8     0x4  main.o [1]
+    .init_array          const     0x800'72cc     0x4  StartUp.o [1]
+    .init_array          const     0x800'72d0     0x4  iar_newlocale.o [8]
+  __iar_tls$$INIT_ARRAY            0x800'72d4     0x0  <Block>
+  .text                  ro code   0x800'72d4     0xe  iar_newlocale.o [8]
+  .rodata                const     0x800'72e4     0xc  ADC.o [2]
+  .rodata                const     0x800'72f0     0xc  InSender.o [6]
+  .rodata                const     0x800'72fc     0xc  main.o [1]
+  .rodata                const     0x800'7308     0xc  main.o [1]
+  .rodata                const     0x800'7314     0xc  main.o [1]
+  .rodata                const     0x800'7320     0xc  PowerRegulationTask.o [6]
+  .rodata                const     0x800'732c     0xc  PWM.o [3]
+  .rodata                const     0x800'7338     0x4  InSender.o [6]
+  .rodata                const     0x800'7340     0x8  InSender.o [6]
+  .rodata                const     0x800'7348     0x8  main.o [1]
+  .rodata                const     0x800'7350     0x8  PowerRegulationTask.o [6]
+  .rodata                const     0x800'7358     0x8  tasks.o [4]
+  .rodata                const     0x800'7360     0x8  timers.o [4]
+  .rodata                const     0x800'7368     0x8  timers.o [4]
+  .rodata                const     0x800'7370     0x8  locale.o [8]
+  .text                  ro code   0x800'7378     0x8  main.o [1]
+  .text                  ro code   0x800'7380     0x8  StartUp.o [1]
+  .text                  ro code   0x800'7388     0x8  StartUp.o [1]
+  .text                  ro code   0x800'7390     0x8  StartUp.o [1]
+  .text                  ro code   0x800'7398     0x8  StartUp.o [1]
+  .rodata                const     0x800'73a0     0x4  port.o [5]
+  .text                  ro code   0x800'73a4     0x4  ios.instantiations.o [8]
+  .text                  ro code   0x800'73a8     0x0  cstart_call_dtors.o [11]
+  .rodata                const     0x800'73a8     0x0  zero_init3.o [11]
+  .rodata                const     0x800'73a8     0x0  copy_init3.o [11]
+                                 - 0x800'73a8  0x728c
+
+"P2", part 1 of 3:                               0x7c
+  P2-1                            0x2000'0000    0x7c  <Init block>
+    .data                inited   0x2000'0000     0x4  main.o [1]
+    .data                inited   0x2000'0004     0x4  main.o [1]
+    .data                inited   0x2000'0008     0x4  port.o [5]
+    .data                inited   0x2000'000c    0x38  xlocale_c.o [7]
+    .data                inited   0x2000'0044    0x18  xlocale_c.o [7]
+    .data                inited   0x2000'005c    0x18  xlocale_c.o [7]
+    .data                inited   0x2000'0074     0x8  XShttio.o [7]
+                                - 0x2000'007c    0x7c
+
+"P2", part 2 of 3:                             0x1d14
+  .bss                   zero     0x2000'007c   0x860  main.o [1]
+  .bss                   zero     0x2000'08dc   0x860  main.o [1]
+  .bss                   zero     0x2000'113c   0x400  tasks.o [4]
+  .bss                   zero     0x2000'153c   0x200  tasks.o [4]
+  .bss                   zero     0x2000'1740   0x178  locale.o [8]
+  .bss                   zero     0x2000'18b8    0xb0  locale.o [8]
+  .bss                   zero     0x2000'1968    0xa0  timers.o [4]
+  .bss                   zero     0x2000'1a08    0x64  tasks.o [4]
+  .bss                   zero     0x2000'1a6c    0x50  tasks.o [4]
+  .bss                   zero     0x2000'1abc    0x50  tasks.o [4]
+  .bss                   zero     0x2000'1b0c    0x48  timers.o [4]
+  .bss                   zero     0x2000'1b54    0x40  queue.o [4]
+  .bss                   zero     0x2000'1b94    0x1c  iar_newlocale.o [8]
+  .bss                   zero     0x2000'1bb0    0x14  tasks.o [4]
+  .bss                   zero     0x2000'1bc4    0x14  tasks.o [4]
+  .bss                   zero     0x2000'1bd8    0x14  tasks.o [4]
+  .bss                   zero     0x2000'1bec    0x14  tasks.o [4]
+  .bss                   zero     0x2000'1c00    0x14  timers.o [4]
+  .bss                   zero     0x2000'1c14    0x14  timers.o [4]
+  .bss                   zero     0x2000'1c28     0xc  InSender.o [6]
+  .bss                   zero     0x2000'1c34     0xc  main.o [1]
+  .bss                   zero     0x2000'1c40     0xc  locale.o [8]
+  .bss                   zero     0x2000'1c4c     0x8  main.o [1]
+  .bss                   zero     0x2000'1c54     0x8  main.o [1]
+  .bss                   zero     0x2000'1c5c     0x8  main.o [1]
+  .bss                   zero     0x2000'1c64     0x8  locale.o [8]
+  .bss                   zero     0x2000'1c6c     0x8  locale.o [8]
+  .bss                   zero     0x2000'1c74     0x8  locale.o [8]
+  .bss                   zero     0x2000'1c7c     0x8  locale.o [8]
+  .bss                   zero     0x2000'1c84     0x8  locale.o [8]
+  .bss                   zero     0x2000'1c8c     0x8  locale.o [8]
+  .bss                   zero     0x2000'1c94     0x8  locale.o [8]
+  .bss                   zero     0x2000'1c9c     0x8  locale.o [8]
+  .bss                   zero     0x2000'1ca4     0x8  locale.o [8]
+  .bss                   zero     0x2000'1cac     0x8  locale.o [8]
+  .bss                   zero     0x2000'1cb4     0x8  locale.o [8]
+  .bss                   zero     0x2000'1cbc     0x8  locale.o [8]
+  .bss                   zero     0x2000'1cc4     0x8  locale.o [8]
+  .bss                   zero     0x2000'1ccc     0x8  locale.o [8]
+  .bss                   zero     0x2000'1cd4     0x8  locale.o [8]
+  .bss                   zero     0x2000'1cdc     0x8  locale.o [8]
+  .bss                   zero     0x2000'1ce4     0x8  locale.o [8]
+  .bss                   zero     0x2000'1cec     0x8  locale.o [8]
+  .bss                   zero     0x2000'1cf4     0x8  locale.o [8]
+  .bss                   zero     0x2000'1cfc     0x8  locale.o [8]
+  .bss                   zero     0x2000'1d04     0x8  locale.o [8]
+  .bss                   zero     0x2000'1d0c     0x8  heap0.o [7]
+  .bss                   zero     0x2000'1d14     0x4  InSender.o [6]
+  .bss                   zero     0x2000'1d18     0x4  main.o [1]
+  .bss                   zero     0x2000'1d1c     0x4  main.o [1]
+  .bss                   zero     0x2000'1d20     0x4  port.o [5]
+  .bss                   zero     0x2000'1d24     0x4  tasks.o [4]
+  .bss                   zero     0x2000'1d28     0x4  tasks.o [4]
+  .bss                   zero     0x2000'1d2c     0x4  tasks.o [4]
+  .bss                   zero     0x2000'1d30     0x4  tasks.o [4]
+  .bss                   zero     0x2000'1d34     0x4  tasks.o [4]
+  .bss                   zero     0x2000'1d38     0x4  tasks.o [4]
+  .bss                   zero     0x2000'1d3c     0x4  tasks.o [4]
+  .bss                   zero     0x2000'1d40     0x4  tasks.o [4]
+  .bss                   zero     0x2000'1d44     0x4  tasks.o [4]
+  .bss                   zero     0x2000'1d48     0x4  tasks.o [4]
+  .bss                   zero     0x2000'1d4c     0x4  tasks.o [4]
+  .bss                   zero     0x2000'1d50     0x4  tasks.o [4]
+  .bss                   zero     0x2000'1d54     0x4  tasks.o [4]
+  .bss                   zero     0x2000'1d58     0x4  tasks.o [4]
+  .bss                   zero     0x2000'1d5c     0x4  timers.o [4]
+  .bss                   zero     0x2000'1d60     0x4  timers.o [4]
+  .bss                   zero     0x2000'1d64     0x4  timers.o [4]
+  .bss                   zero     0x2000'1d68     0x4  timers.o [4]
+  .bss                   zero     0x2000'1d6c     0x4  timers.o [4]
+  .bss                   zero     0x2000'1d70     0x4  cppinit.o [7]
+  .bss                   zero     0x2000'1d74     0x4  cppinit.o [7]
+  .bss                   zero     0x2000'1d78     0x4  locale.o [8]
+  .bss                   zero     0x2000'1d7c     0x4  new.o [9]
+  .bss                   zero     0x2000'1d80     0x4  xgetmemchunk.o [7]
+  .bss                   zero     0x2000'1d84     0x4  xfail_s.o [7]
+  .tbss                  zero     0x2000'1d88     0x4  errno.o [7]
+  .bss                   zero     0x2000'1d8c     0x1  InSender.o [6]
+  .bss                   zero     0x2000'1d8d     0x1  main.o [1]
+  .bss                   zero     0x2000'1d8e     0x1  port.o [5]
+                                - 0x2000'1d8f  0x1d13
+
+"P2", part 3 of 3:                             0x41b0
+  .iar.dynexit                    0x2000'1d90   0x1b0  <Block>
+    .iar.dynexit         uninit   0x2000'1d90     0xc  cppinit.o [7]
+    .iar.dynexit         uninit   0x2000'1d9c   0x1a4  <Block tail>
+  CSTACK                          0x2000'1f40  0x2000  <Block>
+    CSTACK               uninit   0x2000'1f40  0x2000  <Block tail>
+  HEAP                            0x2000'3f40  0x2000  <Block>
+    HEAP                 uninit   0x2000'3f40  0x2000  <Block tail>
+                                - 0x2000'5f40  0x41b0
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+   0x800'73a8   0x807'ffff  0x7'8c58
+  0x2000'5f40  0x2001'ffff  0x1'a0c0
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address      Size
+          -------      ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x1d13:
+          0x2000'007c  0x1d13
+
+Copy (__iar_copy_init3)
+    1 source range, total size 0x7c:
+           0x800'6610    0x7c
+    1 destination range, total size 0x7c:
+          0x2000'0000    0x7c
+
+Extra (__iar_cstart_call_ctors)
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                       ro code  ro data  rw data
+    ------                       -------  -------  -------
+command line/config:
+    ------------------------------------------------------
+    Total:
+
+D:\DownloadsGoogle\dlu-kursocha\Kursovow\Debug\Obj: [1]
+    StartUp.o                        154      288
+    main.o                         1'390      128    4'341
+    ------------------------------------------------------
+    Total:                         1'544      416    4'341
+
+D:\DownloadsGoogle\dlu-kursocha\Kursovow\Debug\Obj\Hardware\ADC: [2]
+    ADC.o                            346       12
+    ------------------------------------------------------
+    Total:                           346       12
+
+D:\DownloadsGoogle\dlu-kursocha\Kursovow\Debug\Obj\Hardware\PWM: [3]
+    PWM.o                            106       12
+    ------------------------------------------------------
+    Total:                           106       12
+
+D:\DownloadsGoogle\dlu-kursocha\Kursovow\Debug\Obj\Rtos\FreeRtos: [4]
+    list.o                           152
+    queue.o                        1'554                64
+    tasks.o                        2'084        8    1'932
+    timers.o                         916       16      292
+    ------------------------------------------------------
+    Total:                         4'706       24    2'288
+
+D:\DownloadsGoogle\dlu-kursocha\Kursovow\Debug\Obj\Rtos\FreeRtos\portable\IAR\ARM_CM4F: [5]
+    port.o                           388        8        9
+    portasm.o                        168
+    ------------------------------------------------------
+    Total:                           556        8        9
+
+D:\DownloadsGoogle\dlu-kursocha\Kursovow\Debug\Obj\Thread: [6]
+    InSender.o                     1'580       30       17
+    PowerRegulationTask.o             84       20
+    ------------------------------------------------------
+    Total:                         1'664       50       17
+
+dl7M_tlf.a: [7]
+    XShttio.o                          8        8        8
+    abort.o                            6
+    cppinit.o                        160                20
+    errno.o                           24                 4
+    exit.o                             4
+    heap0.o                          316                 8
+    heaptramp0.o                       4
+    low_level_init.o                   4
+    tp_nothreads.o                     4
+    vsnprint.o                        60
+    xfail_s.o                         64                 4
+    xgetmemchunk.o                    44                 4
+    xlocale_c.o                       24      237      104
+    xprintffull_nomb.o             3'754
+    xsnprout.o                        26
+    ------------------------------------------------------
+    Total:                         4'502      245      152
+
+dllibcpp7M_tls_fc.a: [8]
+    iar_locale.o                     150
+    iar_newlocale.o                  776        4       28
+    ios.instantiations.o           1'360      240
+    ios.o                            266       16
+    locale.o                       4'970    2'449      736
+    memory.o                           2
+    mutex.o                           24
+    string.o                         842
+    vector.o                           4
+    ------------------------------------------------------
+    Total:                         8'394    2'709      764
+
+dlpprt7M_tl_fc.a: [9]
+    cxxabi.o                          10
+    delaop_0.o                         4
+    delop4_0.o                         4
+    delop6_0.o                         4
+    delop_0.o                         10
+    new.o                                                4
+    newop_0.o                         36
+    nomemory.o                         4
+    ------------------------------------------------------
+    Total:                            72                 4
+
+m7M_tls.a: [10]
+    DblAddSub.o                      590
+    DblCmpGe.o                        52
+    DblCmpLe.o                        52
+    DblDiv.o                         582
+    DblMul.o                         426
+    DblToS32.o                        54
+    DblToU32.o                        34
+    FltToDbl.o                        72
+    S32ToDbl.o                        34
+    U32ToDbl.o                        28
+    expf.o                            90
+    fpinit_M.o                        34
+    frexp.o                          112
+    ldexp.o                          314
+    xexpf.o                          222       68
+    ------------------------------------------------------
+    Total:                         2'696       68
+
+rt7M_tl.a: [11]
+    ABImemcpy.o                      166
+    ABImemset.o                      102
+    I64DivMod.o                      628
+    I64DivZer.o                        2
+    arm_exceptions_uncaught_c.o        4
+    cexit.o                           14
+    cmain.o                           30
+    cmain_call_ctors.o                32
+    copy_init3.o                      42
+    cstart_call_dtors.o
+    data_init.o                       40
+    memchr.o                          88
+    strchr.o                          22
+    strlen.o                          54
+    zero_init3.o                      56
+    ------------------------------------------------------
+    Total:                         1'280
+
+shb_l.a: [12]
+    ABIassert.o                       36
+    exit.o                            20
+    iarttio.o                         44
+    unwind_debug.o                              1
+    ------------------------------------------------------
+    Total:                           100        1
+
+    Gaps                              45       12        4
+    Linker created                             40   16'804
+----------------------------------------------------------
+    Grand Total:                  26'011    3'597   24'383
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                       Address   Size  Type      Object
+-----                       -------   ----  ----      ------
+.iar.dynexit$$Base      0x2000'1d90          --   Gb  - Linker created -
+.iar.dynexit$$Limit     0x2000'1f40          --   Gb  - Linker created -
+.iar.init_table$$Base    0x800'6e8c          --   Gb  - Linker created -
+.iar.init_table$$Limit   0x800'6eb4          --   Gb  - Linker created -
+?main                    0x800'6a0d         Code  Gb  cmain.o [11]
+ADC::ADC()               0x800'4ef1   0x16  Code  Gb  ADC.o [2]
+ADC::GetData()           0x800'4f0d    0xa  Code  Gb  ADC.o [2]
+ADC::Start()             0x800'4f17    0xa  Code  Gb  ADC.o [2]
+Aldata                  0x2000'1d0c    0x8  Data  Lc  heap0.o [7]
+CSTACK$$Base            0x2000'1f40          --   Gb  - Linker created -
+CSTACK$$Limit           0x2000'3f40          --   Gb  - Linker created -
+DMA::ConfigureADC(unsigned int)
+                         0x800'53f1   0x44  Code  Wk  ADC.o [2]
+DMA::Disable()           0x800'5655    0x8  Code  Wk  ADC.o [2]
+DtorRecArray            0x2000'1d90    0xc  Data  Lc  cppinit.o [7]
+Filter::Filter(IDataSource &)
+                         0x800'4f3d   0x20  Code  Wk  main.o [1]
+Filter::GetData()        0x800'6d4d   0x30  Code  Wk  main.o [1]
+Filter::tau             0x2000'1d18    0x4  Data  Wk  main.o [1]
+HEAP$$Base              0x2000'3f40          --   Gb  - Linker created -
+HEAP$$Limit             0x2000'5f40          --   Gb  - Linker created -
+IDataSource::IDataSource()
+                         0x800'5653    0x2  Code  Wk  ADC.o [2]
+IDataSource::IDataSource() [subobject]
+                         0x800'53e7    0x8  Code  Wk  ADC.o [2]
+IMeasureParameter::IMeasureParameter()
+                         0x800'5721    0x2  Code  Wk  PWM.o [3]
+IMeasureParameter::IMeasureParameter() [subobject]
+                         0x800'5435    0x8  Code  Wk  PWM.o [3]
+InSender::Execute()      0x800'503b   0x22  Code  Gb  InSender.o [6]
+InSender::InSender(IDataSource &)
+                         0x800'5023   0x18  Code  Gb  InSender.o [6]
+Initialization guard variable for Filter::tau
+                        0x2000'1d8d    0x1  Data  Wk  main.o [1]
+Initialization guard variable for Sender<USART2>::localStroka
+                        0x2000'1d8c    0x1  Data  Wk  InSender.o [6]
+InterruptHandler::DummyHandler()
+                         0x800'140b    0x2  Code  Wk  StartUp.o [1]
+InterruptHandler::USART2Handler()
+                         0x800'704d   0x18  Code  Wk  StartUp.o [1]
+OneMillisecondRation    0x2000'0004    0x4  Data  Gb  main.o [1]
+OsWrapper::IThread::IThread()
+                         0x800'5d27    0xa  Code  Wk  InSender.o [6]
+OsWrapper::IThread::IThread() [subobject]
+                         0x800'5971    0x8  Code  Wk  InSender.o [6]
+OsWrapper::IThread::Run()
+                         0x800'70e9   0x14  Code  Wk  main.o [1]
+OsWrapper::IThread::Sleep(std::chrono::duration<long long, std::ratio<(long long)1, (long long)1000>>)
+                         0x800'5451   0x1a  Code  Wk  InSender.o [6]
+OsWrapper::Rtos::HandleSvcInterrupt()
+                         0x800'7391    0x8  Code  Wk  StartUp.o [1]
+OsWrapper::Rtos::HandleSysTickInterrupt()
+                         0x800'7399    0x8  Code  Wk  StartUp.o [1]
+OsWrapper::Rtos::Run(void *)
+                         0x800'7379    0x8  Code  Wk  main.o [1]
+OsWrapper::Rtos::Start()
+                         0x800'5361    0x8  Code  Wk  main.o [1]
+OsWrapper::RtosWrapper::wGetTicks()
+                         0x800'70fd    0x8  Code  Wk  main.o [1]
+OsWrapper::RtosWrapper::wHandleSvcInterrupt()
+                         0x800'7381    0x8  Code  Wk  StartUp.o [1]
+OsWrapper::RtosWrapper::wHandleSysTickInterrupt()
+                         0x800'7389    0x8  Code  Wk  StartUp.o [1]
+OsWrapper::RtosWrapper::wSleep(unsigned int)
+                         0x800'5741    0x8  Code  Wk  InSender.o [6]
+OsWrapper::RtosWrapper::wStart()
+                         0x800'556d    0x8  Code  Wk  main.o [1]
+OsWrapper::Thread<(unsigned int)512>::Thread()
+                         0x800'5723    0xe  Code  Wk  InSender.o [6]
+OsWrapper::Thread<(unsigned int)512>::Thread() [subobject]
+                         0x800'5449    0x8  Code  Wk  InSender.o [6]
+PWM::Calculate()         0x800'4f75   0x34  Code  Gb  PWM.o [3]
+PWM::PWM(IDataSource &)
+                         0x800'4f5d   0x16  Code  Gb  PWM.o [3]
+PowerRegulationTask::Execute()
+                         0x800'4fc9   0x32  Code  Gb  PowerRegulationTask.o [6]
+PowerRegulationTask::PowerRegulationTask(IMeasureParameter &)
+                         0x800'4fb1   0x18  Code  Gb  PowerRegulationTask.o [6]
+Region$$Table$$Base      0x800'6e8c          --   Gb  - Linker created -
+Region$$Table$$Limit     0x800'6eb4          --   Gb  - Linker created -
+SHT$$INIT_ARRAY$$Base    0x800'72c4          --   Gb  - Linker created -
+SHT$$INIT_ARRAY$$Limit   0x800'72d4          --   Gb  - Linker created -
+SHT$$PREINIT_ARRAY$$Base
+                         0x800'72c4          --   Gb  - Linker created -
+SHT$$PREINIT_ARRAY$$Limit
+                         0x800'72c4          --   Gb  - Linker created -
+Sender<USART2>::Send(float)
+                         0x800'5491   0x80  Code  Wk  InSender.o [6]
+Sender<USART2>::Send(float)::string
+                         0x800'7338    0x4  Data  Wk  InSender.o [6]
+Sender<USART2>::Send(float)::string (instance 2)
+                         0x800'119a    0x2  Data  Wk  InSender.o [6]
+Sender<USART2>::SendOneSymvol()
+                         0x800'5901   0x40  Code  Wk  InSender.o [6]
+Sender<USART2>::i       0x2000'1d14    0x4  Data  Wk  InSender.o [6]
+Sender<USART2>::localStroka
+                        0x2000'1c28    0xc  Data  Wk  InSender.o [6]
+SystemCoreClock         0x2000'0000    0x4  Data  Gb  main.o [1]
+Timer3Prescaller        0x2000'1d1c    0x4  Data  Gb  main.o [1]
+Virtual function table for ADC
+                         0x800'72e4    0xc  Data  Wk  ADC.o [2]
+Virtual function table for Filter
+                         0x800'7308    0xc  Data  Wk  main.o [1]
+Virtual function table for InSender
+                         0x800'72f0    0xc  Data  Wk  InSender.o [6]
+Virtual function table for PWM
+                         0x800'732c    0xc  Data  Wk  PWM.o [3]
+Virtual function table for PowerRegulationTask
+                         0x800'7320    0xc  Data  Wk  PowerRegulationTask.o [6]
+Virtual function table for Voltage
+                         0x800'72fc    0xc  Data  Wk  main.o [1]
+Virtual function table for std::__time_get_c_storage<char>
+                         0x800'6e44   0x24  Data  Wk  locale.o [8]
+Virtual function table for std::__time_get_c_storage<wchar_t>
+                         0x800'6e68   0x24  Data  Wk  locale.o [8]
+Virtual function table for std::basic_ostringstream<char, std::char_traits<char>, std::allocator<char>>
+                         0x800'6d7c   0x28  Data  Wk  ios.instantiations.o [8]
+Virtual function table for std::basic_stringbuf<char, std::char_traits<char>, std::allocator<char>>
+                         0x800'68e8   0x40  Data  Wk  ios.instantiations.o [8]
+Virtual function table for std::codecvt<char, char, _Mbstatet>
+                         0x800'6c8c   0x30  Data  Wk  locale.o [8]
+Virtual function table for std::codecvt<char16_t, char, _Mbstatet>
+                         0x800'6cec   0x30  Data  Wk  locale.o [8]
+Virtual function table for std::codecvt<char32_t, char, _Mbstatet>
+                         0x800'6d1c   0x30  Data  Wk  locale.o [8]
+Virtual function table for std::codecvt<wchar_t, char, _Mbstatet>
+                         0x800'6cbc   0x30  Data  Wk  locale.o [8]
+Virtual function table for std::collate<char>
+                         0x800'6eb4   0x20  Data  Wk  locale.o [8]
+Virtual function table for std::collate<wchar_t>
+                         0x800'6ed4   0x20  Data  Wk  locale.o [8]
+Virtual function table for std::ctype<char>
+                         0x800'6bf0   0x34  Data  Wk  locale.o [8]
+Virtual function table for std::ctype<wchar_t>
+                         0x800'67dc   0x44  Data  Wk  locale.o [8]
+Virtual function table for std::ios
+                         0x800'7294   0x10  Data  Wk  ios.instantiations.o [8]
+Virtual function table for std::ios in std::ostream in std::basic_ostringstream<char, std::char_traits<char>, std::allocator<char>>
+                         0x800'70ac   0x14  Data  Wk  ios.instantiations.o [8]
+Virtual function table for std::ios_base
+                         0x800'72b4   0x10  Data  Wk  ios.o [8]
+Virtual function table for std::locale::__imp
+                         0x800'70d4   0x14  Data  Wk  locale.o [8]
+Virtual function table for std::locale::facet
+                         0x800'70c0   0x14  Data  Wk  locale.o [8]
+Virtual function table for std::messages<char>
+                         0x800'6ef4   0x20  Data  Wk  locale.o [8]
+Virtual function table for std::messages<wchar_t>
+                         0x800'6f14   0x20  Data  Wk  locale.o [8]
+Virtual function table for std::money_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>
+                         0x800'6f90   0x1c  Data  Wk  locale.o [8]
+Virtual function table for std::money_get<wchar_t, std::istreambuf_iterator<wchar_t, std::char_traits<wchar_t>>>
+                         0x800'6fac   0x1c  Data  Wk  locale.o [8]
+Virtual function table for std::money_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>
+                         0x800'6fc8   0x1c  Data  Wk  locale.o [8]
+Virtual function table for std::money_put<wchar_t, std::ostreambuf_iterator<wchar_t, std::char_traits<wchar_t>>>
+                         0x800'6fe4   0x1c  Data  Wk  locale.o [8]
+Virtual function table for std::moneypunct<char, (bool)0>
+                         0x800'6a6c   0x38  Data  Wk  locale.o [8]
+Virtual function table for std::moneypunct<char, (bool)1>
+                         0x800'6aa4   0x38  Data  Wk  locale.o [8]
+Virtual function table for std::moneypunct<wchar_t, (bool)0>
+                         0x800'6adc   0x38  Data  Wk  locale.o [8]
+Virtual function table for std::moneypunct<wchar_t, (bool)1>
+                         0x800'6b14   0x38  Data  Wk  locale.o [8]
+Virtual function table for std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>
+                         0x800'6928   0x40  Data  Wk  locale.o [8]
+Virtual function table for std::num_get<wchar_t, std::istreambuf_iterator<wchar_t, std::char_traits<wchar_t>>>
+                         0x800'6968   0x40  Data  Wk  locale.o [8]
+Virtual function table for std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>
+                         0x800'6c24   0x34  Data  Wk  locale.o [8]
+Virtual function table for std::num_put<wchar_t, std::ostreambuf_iterator<wchar_t, std::char_traits<wchar_t>>>
+                         0x800'6c58   0x34  Data  Wk  locale.o [8]
+Virtual function table for std::numpunct<char>
+                         0x800'6da4   0x28  Data  Wk  locale.o [8]
+Virtual function table for std::numpunct<wchar_t>
+                         0x800'6dcc   0x28  Data  Wk  locale.o [8]
+Virtual function table for std::ostream in std::basic_ostringstream<char, std::char_traits<char>, std::allocator<char>>
+                         0x800'7098   0x14  Data  Wk  ios.instantiations.o [8]
+Virtual function table for std::streambuf
+                         0x800'68a8   0x40  Data  Wk  ios.instantiations.o [8]
+Virtual function table for std::time_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>
+                         0x800'66ec   0x54  Data  Wk  locale.o [8]
+Virtual function table for std::time_get<wchar_t, std::istreambuf_iterator<wchar_t, std::char_traits<wchar_t>>>
+                         0x800'6740   0x54  Data  Wk  locale.o [8]
+Virtual function table for std::time_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>
+                         0x800'701c   0x18  Data  Wk  locale.o [8]
+Virtual function table for std::time_put<wchar_t, std::ostreambuf_iterator<wchar_t, std::char_traits<wchar_t>>>
+                         0x800'7034   0x18  Data  Wk  locale.o [8]
+Virtual table table for std::basic_ostringstream<char, std::char_traits<char>, std::allocator<char>>
+                         0x800'72a4   0x10  Data  Wk  ios.instantiations.o [8]
+Voltage::GetData()       0x800'6df5   0x28  Code  Wk  main.o [1]
+Voltage::Voltage(IDataSource &)
+                         0x800'4f21   0x1c  Code  Wk  main.o [1]
+[local to iar_newlocale_cpp]::std::sLast
+                        0x2000'1bac    0x4  Data  Lc  iar_newlocale.o [8]
+[local to iar_newlocale_cpp]::std::sLastName
+                        0x2000'1b94    0xc  Data  Lc  iar_newlocale.o [8]
+[local to iar_newlocale_cpp]::std::sRefCounts
+                        0x2000'1ba0    0xc  Data  Lc  iar_newlocale.o [8]
+_CProfile               0x2000'0044   0x18  Data  Lc  xlocale_c.o [7]
+_LC                      0x800'011d    0x6  Code  Lc  xprintffull_nomb.o [7]
+_LitobFullNoMb           0x800'0de5  0x114  Code  Lc  xprintffull_nomb.o [7]
+_LocaleC_lconv           0x800'6b4c   0x38  Data  Lc  xlocale_c.o [7]
+_Locale_Profile         0x2000'005c   0x18  Data  Lc  xlocale_c.o [7]
+_Locale_lconv           0x2000'000c   0x38  Data  Lc  xlocale_c.o [7]
+_PrintfFullNoMb          0x800'0123  0xc92  Code  Gb  xprintffull_nomb.o [7]
+_PutcharsFullNoMb        0x800'0f51   0x2e  Code  Lc  xprintffull_nomb.o [7]
+_SNProut                 0x800'1007   0x1a  Code  Gb  xsnprout.o [7]
+__aeabi_assert           0x800'5369   0x24  Code  Gb  ABIassert.o [12]
+__aeabi_atexit           0x800'5485    0xa  Code  Gb  cxxabi.o [9]
+__aeabi_cdcmple          0x800'120d         Code  Gb  DblCmpLe.o [10]
+__aeabi_cdrcmple         0x800'1241         Code  Gb  DblCmpGe.o [10]
+__aeabi_d2iz             0x800'13b1         Code  Gb  DblToS32.o [10]
+__aeabi_d2uiz            0x800'18a5         Code  Gb  DblToU32.o [10]
+__aeabi_ddiv             0x800'165d         Code  Gb  DblDiv.o [10]
+__aeabi_dmul             0x800'18e5         Code  Gb  DblMul.o [10]
+__aeabi_dsub             0x800'1579         Code  Gb  DblAddSub.o [10]
+__aeabi_f2d              0x800'5af1         Code  Gb  FltToDbl.o [10]
+__aeabi_i2d              0x800'13e9         Code  Gb  S32ToDbl.o [10]
+__aeabi_ldiv0            0x800'1d3d         Code  Gb  I64DivZer.o [11]
+__aeabi_ldivmod          0x800'1aa9         Code  Gb  I64DivMod.o [11]
+__aeabi_memcpy           0x800'10f5         Code  Gb  ABImemcpy.o [11]
+__aeabi_memcpy4          0x800'1115         Code  Gb  ABImemcpy.o [11]
+__aeabi_memcpy8          0x800'1115         Code  Gb  ABImemcpy.o [11]
+__aeabi_memset           0x800'6319         Code  Gb  ABImemset.o [11]
+__aeabi_ui2d             0x800'18c9         Code  Gb  U32ToDbl.o [10]
+__aeabi_uldivmod         0x800'1aed         Code  Gb  I64DivMod.o [11]
+__basic_free             0x800'2ea5   0x16  Code  Gb  heap0.o [7]
+__basic_free_intern      0x800'2ebb   0x74  Code  Lc  heap0.o [7]
+__basic_malloc           0x800'2df9   0x18  Code  Gb  heap0.o [7]
+__basic_malloc_intern    0x800'2e11   0x94  Code  Lc  heap0.o [7]
+__call_ctors             0x800'5771   0x18  Code  Gb  cppinit.o [7]
+__call_dtors             0x800'57bf    0xc  Code  Gb  cppinit.o [7]
+__call_dtors0            0x800'57cb   0x36  Code  Gb  cppinit.o [7]
+__cexit_call_dtors       0x800'6a5f         Code  Gb  cexit.o [11]
+__cmain                  0x800'6a0d         Code  Gb  cmain.o [11]
+__cstart_call_dtors      0x800'73a8         Data  Gb  cstart_call_dtors.o [11]
+__cxa_atexit             0x800'5789   0x36  Code  Gb  cppinit.o [7]
+__data_GetMemChunk       0x800'318d   0x2c  Code  Gb  xgetmemchunk.o [7]
+__data_GetMemChunk::start
+                        0x2000'1d80    0x4  Data  Lc  xgetmemchunk.o [7]
+__dso_handle            0x2000'1d74    0x4  Data  Gb  cppinit.o [7]
+__exit                   0x800'1d41   0x14  Code  Gb  exit.o [12]
+__iar_CProfile           0x800'1a91    0x4  Code  Gb  xlocale_c.o [7]
+__iar_C_Locale           0x800'6794   0x48  Data  Lc  xlocale_c.o [7]
+__iar_Errno             0x2000'1d88    0x4  Tls   Gb  errno.o [7]
+__iar_Fail_s             0x800'1021   0x1c  Code  Gb  xfail_s.o [7]
+__iar_Memchr             0x800'109d         Code  Gb  memchr.o [11]
+__iar_Memset             0x800'6319         Code  Gb  ABImemset.o [11]
+__iar_Memset_word        0x800'6321         Code  Gb  ABImemset.o [11]
+__iar_Strchr             0x800'0ff1         Code  Gb  strchr.o [11]
+__iar_close_ttio         0x800'1d59   0x2c  Code  Gb  iarttio.o [12]
+__iar_copy_init3         0x800'0fc7   0x2a  Code  Gb  copy_init3.o [11]
+__iar_cstart_call_ctors
+                         0x800'6f35   0x20  Code  Gb  cmain_call_ctors.o [11]
+__iar_data_init3         0x800'6a31   0x28  Code  Gb  data_init.o [11]
+__iar_debug_exceptions   0x800'165a    0x1  Data  Gb  unwind_debug.o [12]
+__iar_errno_set_ERANGE   0x800'1d25    0xc  Code  Gb  errno.o [7]
+__iar_exp32              0x800'538d         Code  Gb  expf.o [10]
+__iar_expf_OutBnd        0x800'53bd         Code  Gb  expf.o [10]
+__iar_expf_cTab          0x800'6820         Data  Gb  xexpf.o [10]
+__iar_frexp              0x800'11a9         Code  Gb  frexp.o [10]
+__iar_frexpl             0x800'11a9         Code  Gb  frexp.o [10]
+__iar_global_Profile     0x800'1a95    0x4  Code  Gb  xlocale_c.o [7]
+__iar_init_vfp           0x800'69e9         Code  Gb  fpinit_M.o [10]
+__iar_ldexp64            0x800'1275         Code  Gb  ldexp.o [10]
+__iar_lookup_ttioh       0x800'1d85    0x8  Code  Gb  XShttio.o [7]
+__iar_nothread_read_tp   0x800'1d55    0x4  Code  Gb  tp_nothreads.o [7]
+__iar_program_start      0x800'69d9   0x10  Code  Gb  StartUp.o [1]
+__iar_scalbln64          0x800'1275         Code  Gb  ldexp.o [10]
+__iar_scalbn64           0x800'1275         Code  Gb  ldexp.o [10]
+__iar_softfp___iar_frexp64
+                         0x800'119d         Code  Gb  frexp.o [10]
+__iar_softfp_frexp       0x800'119d         Code  Gb  frexp.o [10]
+__iar_softfp_frexpl      0x800'119d         Code  Gb  frexp.o [10]
+__iar_tls$$INIT_ARRAY$$Base
+                         0x800'72d4          --   Gb  - Linker created -
+__iar_tls$$INIT_ARRAY$$Limit
+                         0x800'72d4          --   Gb  - Linker created -
+__iar_ttio_handles      0x2000'0074    0x8  Data  Lc  XShttio.o [7]
+__iar_xexp2f             0x800'5581         Code  Gb  xexpf.o [10]
+__iar_xexpf              0x800'5575         Code  Gb  xexpf.o [10]
+__iar_xsinhf             0x800'5585         Code  Gb  xexpf.o [10]
+__iar_zero_init3         0x800'6b85   0x38  Code  Gb  zero_init3.o [11]
+__low_level_init         0x800'6a2b    0x4  Code  Gb  low_level_init.o [7]
+__no_uncaught_exception
+                         0x800'5e31    0x4  Code  Gb  arm_exceptions_uncaught_c.o [11]
+__sti__routine           0x800'5005   0x1e  Code  Lc  InSender.o [6]
+__sti__routine           0x800'4d69   0x66  Code  Lc  main.o [1]
+__sti__routine           0x800'69a9   0x1e  Code  Lc  StartUp.o [1]
+__sti__routine           0x800'6865   0x32  Code  Lc  iar_newlocale.o [8]
+__vector_table           0x800'0000  0x11c  Data  Lc  StartUp.o [1]
+_call_main               0x800'6a19         Code  Gb  cmain.o [11]
+_exit                    0x800'6a5d         Code  Gb  cexit.o [11]
+abort                    0x800'1d1d    0x6  Code  Gb  abort.o [7]
+adc                     0x2000'1c4c    0x8  Data  Gb  main.o [1]
+asprintf_l               0x800'2aff   0x4c  Code  Gb  iar_locale.o [8]
+bool FieldValueBase<USART2_CR1_TXEIE_Values<USART2::CR1, (unsigned int)7, (unsigned int)1, ReadWriteMode, USART2::USART2CR1Base>, USART2::USART2CR1Base, (unsigned int)1>::IsSet<ReadWriteMode, void>()
+                         0x800'7075   0x10  Code  Wk  StartUp.o [1]
+bool FieldValueBase<USART2_SR_TXE_Values<USART2::SR, (unsigned int)7, (unsigned int)1, ReadMode, USART2::USART2SRBase>, USART2::USART2SRBase, (unsigned int)1>::IsSet<ReadMode, void>()
+                         0x800'7065   0x10  Code  Wk  StartUp.o [1]
+char * std::addressof<char>(char &)
+                         0x800'4d67    0x2  Code  Wk  InSender.o [6]
+exit                     0x800'6a59    0x4  Code  Gb  exit.o [7]
+exp(float)               0x800'4ee9    0x8  Code  Wk  main.o [1]
+expf                     0x800'538d         Code  Gb  expf.o [10]
+filter                  0x2000'1c34    0xc  Data  Gb  main.o [1]
+free                     0x800'2f35    0x4  Code  Gb  heaptramp0.o [7]
+freelocale               0x800'2b4d   0xa4  Code  Wk  iar_newlocale.o [8]
+isdigit_l                0x800'2ab9    0x2  Code  Gb  iar_locale.o [8]
+isxdigit_l               0x800'2ac5   0x16  Code  Gb  iar_locale.o [8]
+ldexp                    0x800'1275         Code  Gb  ldexp.o [10]
+ldexpl                   0x800'1275         Code  Gb  ldexp.o [10]
+localeconv               0x800'1a99    0x4  Code  Gb  xlocale_c.o [7]
+main                     0x800'4dcf   0xde  Code  Gb  main.o [1]
+memchr                   0x800'109d         Code  Gb  memchr.o [11]
+next_abi_dtor_rec       0x2000'1d70    0x4  Data  Lc  cppinit.o [7]
+operator delete (void *)
+                         0x800'2c3b    0xa  Code  Gb  delop_0.o [9]
+operator delete (void *, unsigned int)
+                         0x800'25e9    0x4  Code  Gb  delop4_0.o [9]
+operator delete (void *, unsigned int, std::align_val_t)
+                         0x800'324d    0x4  Code  Gb  delop6_0.o [9]
+operator delete[] (void *)
+                         0x800'2a9f    0x4  Code  Gb  delaop_0.o [9]
+operator new (unsigned int)
+                         0x800'2c95   0x24  Code  Gb  newop_0.o [9]
+pcInterruptPriorityRegisters
+                         0x800'73a0    0x4  Data  Lc  port.o [5]
+power                   0x2000'007c  0x860  Data  Gb  main.o [1]
+prvAddCurrentTaskToDelayedList
+                         0x800'399d   0x6e  Code  Lc  tasks.o [4]
+prvAddNewTaskToReadyList
+                         0x800'3319   0x9a  Code  Lc  tasks.o [4]
+prvCheckForValidListAndQueue
+                         0x800'3f83   0x4c  Code  Lc  timers.o [4]
+prvCheckForValidListAndQueue{1}{2}{3}{4}::ucStaticTimerQueueStorage
+                        0x2000'1968   0xa0  Data  Lc  timers.o [4]
+prvCheckForValidListAndQueue{1}{2}{3}{4}::xStaticTimerQueue
+                        0x2000'1b0c   0x48  Data  Lc  timers.o [4]
+prvCheckTasksWaitingTermination
+                         0x800'3807    0x2  Code  Lc  tasks.o [4]
+prvCopyDataFromQueue     0x800'4595   0x2a  Code  Lc  queue.o [4]
+prvCopyDataToQueue       0x800'450f   0x86  Code  Lc  queue.o [4]
+prvGetNextExpireTime     0x800'3de1   0x26  Code  Lc  timers.o [4]
+prvIdleTask              0x800'37b1    0x8  Code  Lc  tasks.o [4]
+prvInitialiseNewQueue    0x800'4183   0x1c  Code  Lc  queue.o [4]
+prvInitialiseNewTask     0x800'3287   0x92  Code  Lc  tasks.o [4]
+prvInitialiseTaskLists   0x800'37b9   0x4e  Code  Lc  tasks.o [4]
+prvInsertTimerInActiveList
+                         0x800'3e2d   0x3e  Code  Lc  timers.o [4]
+prvIsQueueEmpty          0x800'462d   0x1c  Code  Lc  queue.o [4]
+prvIsQueueFull           0x800'4649   0x1e  Code  Lc  queue.o [4]
+prvProcessExpiredTimer   0x800'3d13   0x46  Code  Lc  timers.o [4]
+prvProcessReceivedCommands
+                         0x800'3e6b   0xba  Code  Lc  timers.o [4]
+prvProcessTimerOrBlockTask
+                         0x800'3d71   0x70  Code  Lc  timers.o [4]
+prvResetNextTaskUnblockTime
+                         0x800'3809   0x28  Code  Lc  tasks.o [4]
+prvSampleTimeNow         0x800'3e07   0x26  Code  Lc  timers.o [4]
+prvSampleTimeNow::xLastTime
+                        0x2000'1d6c    0x4  Data  Lc  timers.o [4]
+prvSwitchTimerLists      0x800'3f25   0x5e  Code  Lc  timers.o [4]
+prvTaskExitError         0x800'3b35   0x10  Code  Lc  port.o [5]
+prvTimerTask             0x800'3d5d   0x14  Code  Lc  timers.o [4]
+prvUnlockQueue           0x800'45bf   0x6e  Code  Lc  queue.o [4]
+pvTaskIncrementMutexHeldCount
+                         0x800'3957   0x16  Code  Gb  tasks.o [4]
+pwm                     0x2000'1c5c    0x8  Data  Gb  main.o [1]
+pxCurrentTCB            0x2000'1d24    0x4  Data  Gb  tasks.o [4]
+pxCurrentTimerList      0x2000'1d5c    0x4  Data  Lc  timers.o [4]
+pxDelayedTaskList       0x2000'1d28    0x4  Data  Lc  tasks.o [4]
+pxOverflowDelayedTaskList
+                        0x2000'1d2c    0x4  Data  Lc  tasks.o [4]
+pxOverflowTimerList     0x2000'1d60    0x4  Data  Lc  timers.o [4]
+pxPortInitialiseStack    0x800'3b0d   0x28  Code  Gb  port.o [5]
+pxReadyTasksLists       0x2000'1a08   0x64  Data  Lc  tasks.o [4]
+scalbln                  0x800'1275         Code  Gb  ldexp.o [10]
+scalblnl                 0x800'1275         Code  Gb  ldexp.o [10]
+scalbn                   0x800'1275         Code  Gb  ldexp.o [10]
+scalbnl                  0x800'1275         Code  Gb  ldexp.o [10]
+scale                    0x800'0ef9   0x46  Code  Lc  xprintffull_nomb.o [7]
+sec_hand                0x2000'1d84    0x4  Data  Lc  xfail_s.o [7]
+send                    0x2000'08dc  0x860  Data  Gb  main.o [1]
+snprintf_l               0x800'2adb   0x24  Code  Gb  iar_locale.o [8]
+std::_GLOBAL__N__10_locale_cpp_3334805e::make<std::codecvt<char, char, mbstate_t>, unsigned int>(unsigned int)::buf
+                        0x2000'17a8    0x8  Data  Lc  locale.o [8]
+std::_GLOBAL__N__10_locale_cpp_3334805e::make<std::codecvt<char16_t, char, mbstate_t>, unsigned int>(unsigned int)::buf
+                        0x2000'17c0    0x8  Data  Lc  locale.o [8]
+std::_GLOBAL__N__10_locale_cpp_3334805e::make<std::codecvt<char32_t, char, mbstate_t>, unsigned int>(unsigned int)::buf
+                        0x2000'17c8    0x8  Data  Lc  locale.o [8]
+std::_GLOBAL__N__10_locale_cpp_3334805e::make<std::codecvt<wchar_t, char, mbstate_t>, unsigned int>(unsigned int)::buf
+                        0x2000'17b0   0x10  Data  Lc  locale.o [8]
+std::_GLOBAL__N__10_locale_cpp_3334805e::make<std::collate<char>, unsigned int>(unsigned int)::buf
+                        0x2000'1790    0x8  Data  Lc  locale.o [8]
+std::_GLOBAL__N__10_locale_cpp_3334805e::make<std::collate<wchar_t>, unsigned int>(unsigned int)::buf
+                        0x2000'1798    0x8  Data  Lc  locale.o [8]
+std::_GLOBAL__N__10_locale_cpp_3334805e::make<std::ctype<char>, std::nullptr_t, bool, unsigned int>(std::nullptr_t, bool, unsigned int)::buf
+                        0x2000'1740   0x10  Data  Lc  locale.o [8]
+std::_GLOBAL__N__10_locale_cpp_3334805e::make<std::ctype<wchar_t>, unsigned int>(unsigned int)::buf
+                        0x2000'17a0    0x8  Data  Lc  locale.o [8]
+std::_GLOBAL__N__10_locale_cpp_3334805e::make<std::locale::__imp, unsigned int>(unsigned int)::buf
+                        0x2000'18c0   0xa8  Data  Lc  locale.o [8]
+std::_GLOBAL__N__10_locale_cpp_3334805e::make<std::messages<char>, unsigned int>(unsigned int)::buf
+                        0x2000'18a8    0x8  Data  Lc  locale.o [8]
+std::_GLOBAL__N__10_locale_cpp_3334805e::make<std::messages<wchar_t>, unsigned int>(unsigned int)::buf
+                        0x2000'18b0    0x8  Data  Lc  locale.o [8]
+std::_GLOBAL__N__10_locale_cpp_3334805e::make<std::money_get<char>, unsigned int>(unsigned int)::buf
+                        0x2000'1848    0x8  Data  Lc  locale.o [8]
+std::_GLOBAL__N__10_locale_cpp_3334805e::make<std::money_get<wchar_t>, unsigned int>(unsigned int)::buf
+                        0x2000'1850    0x8  Data  Lc  locale.o [8]
+std::_GLOBAL__N__10_locale_cpp_3334805e::make<std::money_put<char>, unsigned int>(unsigned int)::buf
+                        0x2000'1858    0x8  Data  Lc  locale.o [8]
+std::_GLOBAL__N__10_locale_cpp_3334805e::make<std::money_put<wchar_t>, unsigned int>(unsigned int)::buf
+                        0x2000'1860    0x8  Data  Lc  locale.o [8]
+std::_GLOBAL__N__10_locale_cpp_3334805e::make<std::moneypunct<char, false>, unsigned int>(unsigned int)::buf
+                        0x2000'1828    0x8  Data  Lc  locale.o [8]
+std::_GLOBAL__N__10_locale_cpp_3334805e::make<std::moneypunct<char, true>, unsigned int>(unsigned int)::buf
+                        0x2000'1830    0x8  Data  Lc  locale.o [8]
+std::_GLOBAL__N__10_locale_cpp_3334805e::make<std::moneypunct<wchar_t, false>, unsigned int>(unsigned int)::buf
+                        0x2000'1838    0x8  Data  Lc  locale.o [8]
+std::_GLOBAL__N__10_locale_cpp_3334805e::make<std::moneypunct<wchar_t, true>, unsigned int>(unsigned int)::buf
+                        0x2000'1840    0x8  Data  Lc  locale.o [8]
+std::_GLOBAL__N__10_locale_cpp_3334805e::make<std::num_get<char>, unsigned int>(unsigned int)::buf
+                        0x2000'1808    0x8  Data  Lc  locale.o [8]
+std::_GLOBAL__N__10_locale_cpp_3334805e::make<std::num_get<wchar_t>, unsigned int>(unsigned int)::buf
+                        0x2000'1810    0x8  Data  Lc  locale.o [8]
+std::_GLOBAL__N__10_locale_cpp_3334805e::make<std::num_put<char>, unsigned int>(unsigned int)::buf
+                        0x2000'1818    0x8  Data  Lc  locale.o [8]
+std::_GLOBAL__N__10_locale_cpp_3334805e::make<std::num_put<wchar_t>, unsigned int>(unsigned int)::buf
+                        0x2000'1820    0x8  Data  Lc  locale.o [8]
+std::_GLOBAL__N__10_locale_cpp_3334805e::make<std::numpunct<char>, unsigned int>(unsigned int)::buf
+                        0x2000'17d0   0x18  Data  Lc  locale.o [8]
+std::_GLOBAL__N__10_locale_cpp_3334805e::make<std::numpunct<wchar_t>, unsigned int>(unsigned int)::buf
+                        0x2000'17e8   0x20  Data  Lc  locale.o [8]
+std::_GLOBAL__N__10_locale_cpp_3334805e::make<std::time_get<char>, unsigned int>(unsigned int)::buf
+                        0x2000'1868   0x10  Data  Lc  locale.o [8]
+std::_GLOBAL__N__10_locale_cpp_3334805e::make<std::time_get<wchar_t>, unsigned int>(unsigned int)::buf
+                        0x2000'1878   0x10  Data  Lc  locale.o [8]
+std::_GLOBAL__N__10_locale_cpp_3334805e::make<std::time_put<char>, unsigned int>(unsigned int)::buf
+                        0x2000'1888   0x10  Data  Lc  locale.o [8]
+std::_GLOBAL__N__10_locale_cpp_3334805e::make<std::time_put<wchar_t>, unsigned int>(unsigned int)::buf
+                        0x2000'1898   0x10  Data  Lc  locale.o [8]
+std::_NomemoryNothrow()
+                         0x800'315f    0x4  Code  Gb  nomemory.o [9]
+std::__basic_string_common<(bool)1>::__throw_length_error() const
+                         0x800'2c8f    0x4  Code  Wk  string.o [8]
+std::__call_once(unsigned long volatile &, void *, void (*)(void *))
+                         0x800'2a87   0x18  Code  Gb  mutex.o [8]
+std::__cloc()            0x800'2ab5    0x4  Code  Gb  iar_locale.o [8]
+std::__compressed_pair<std::string::__rep, std::allocator<char>>::__compressed_pair<std::__default_init_tag, std::__default_init_tag>(std::__default_init_tag &&, std::__default_init_tag &&)
+                         0x800'5749   0x26  Code  Wk  InSender.o [6]
+std::__compressed_pair<std::string::__rep, std::allocator<char>>::first()
+                         0x800'30e5    0x8  Code  Wk  InSender.o [6]
+std::__compressed_pair<std::string::__rep, std::allocator<char>>::first() const
+                         0x800'3163    0x8  Code  Wk  InSender.o [6]
+std::__compressed_pair<std::string::__rep, std::allocator<char>>::second()
+                         0x800'316b    0x8  Code  Wk  InSender.o [6]
+std::__compressed_pair_elem<std::allocator<char>, (int)1, (bool)1>::__compressed_pair_elem(std::__default_init_tag)
+                         0x800'5d3f    0xe  Code  Wk  InSender.o [6]
+std::__compressed_pair_elem<std::allocator<char>, (int)1, (bool)1>::__compressed_pair_elem(std::__default_init_tag) [subobject]
+                         0x800'59a3    0x8  Code  Wk  InSender.o [6]
+std::__compressed_pair_elem<std::allocator<char>, (int)1, (bool)1>::__get()
+                         0x800'320b    0x2  Code  Wk  InSender.o [6]
+std::__compressed_pair_elem<std::string::__rep, (int)0, (bool)0>::__compressed_pair_elem(std::__default_init_tag)
+                         0x800'5d3d    0x2  Code  Wk  InSender.o [6]
+std::__compressed_pair_elem<std::string::__rep, (int)0, (bool)0>::__compressed_pair_elem(std::__default_init_tag) [subobject]
+                         0x800'599b    0x8  Code  Wk  InSender.o [6]
+std::__compressed_pair_elem<std::string::__rep, (int)0, (bool)0>::__get()
+                         0x800'31f9    0x2  Code  Wk  InSender.o [6]
+std::__compressed_pair_elem<std::string::__rep, (int)0, (bool)0>::__get() const
+                         0x800'3209    0x2  Code  Wk  InSender.o [6]
+std::__default_init_tag && std::forward<std::__default_init_tag>(std::remove_reference<std::__default_init_tag>::type &)
+                         0x800'5999    0x2  Code  Wk  InSender.o [6]
+std::__iar_New_hand     0x2000'1d7c    0x4  Data  Gb  new.o [9]
+std::__libcpp_deallocate(void *, unsigned int, unsigned int)
+                         0x800'320d   0x20  Code  Wk  InSender.o [6]
+std::__non_trivial_if<(bool)1, std::allocator<char>>::__non_trivial_if()
+                         0x800'60b7    0x2  Code  Wk  InSender.o [6]
+std::__non_trivial_if<(bool)1, std::allocator<char>>::__non_trivial_if() [subobject]
+                         0x800'60af    0x8  Code  Wk  InSender.o [6]
+std::__num_put<char>::__widen_and_group_float(char *, char *, char *, char *, char *&, char *&, std::locale const &)
+                         0x800'4ae1  0x200  Code  Wk  locale.o [8]
+std::__num_put_base::__format_float(char *, char const *, unsigned int)
+                         0x800'2521   0x86  Code  Gb  locale.o [8]
+std::__num_put_base::__identify_padding(char *, char *, std::ios_base const &)
+                         0x800'25a7   0x3a  Code  Gb  locale.o [8]
+std::__shared_count::__release_shared()
+                         0x800'25ef   0x32  Code  Wk  locale.o [8]
+std::__shared_count::~__shared_count() [subobject]
+                         0x800'25ed    0x2  Code  Gb  memory.o [8]
+std::__split_buffer<std::locale::facet *, std::__sso_allocator<std::locale::facet *, (unsigned int)30> &>::__split_buffer(unsigned int, unsigned int, std::__sso_allocator<std::locale::facet *, (unsigned int)30> &)
+                         0x800'2d4f   0x2c  Code  Wk  locale.o [8]
+std::__split_buffer<std::locale::facet *, std::__sso_allocator<std::locale::facet *, (unsigned int)30> &>::~__split_buffer()
+                         0x800'2d85   0x28  Code  Wk  locale.o [8]
+std::__tree<std::__value_type<_Locale_Profile_t const *, int>, std::__map_value_compare<_Locale_Profile_t const *, std::__value_type<_Locale_Profile_t const *, int>, std::less<_Locale_Profile_t const *>, (bool)1>, std::allocator<std::__value_type<_Locale_Profile_t const *, int>>>::destroy(std::__tree_node<std::__value_type<_Locale_Profile_t const *, int>, void *> *)
+                         0x800'6e1d   0x26  Code  Wk  iar_newlocale.o [8]
+std::__vector_base<std::locale::facet *, std::__sso_allocator<std::locale::facet *, (unsigned int)30>>::__destruct_at_end(std::locale::facet **)
+                         0x800'2dad   0x10  Code  Wk  locale.o [8]
+std::__vector_base<std::locale::facet *, std::__sso_allocator<std::locale::facet *, (unsigned int)30>>::capacity() const
+                         0x800'2cef    0xc  Code  Wk  locale.o [8]
+std::__vector_base<std::locale::facet *, std::__sso_allocator<std::locale::facet *, (unsigned int)30>>::~__vector_base()
+                         0x800'296f   0x2a  Code  Wk  locale.o [8]
+std::__vector_base_common<(bool)1>::__throw_length_error() const
+                         0x800'3131    0x4  Code  Wk  vector.o [8]
+std::allocator<char>::allocator()
+                         0x800'606d    0xe  Code  Wk  InSender.o [6]
+std::allocator<char>::allocator() [subobject]
+                         0x800'5f2b    0x8  Code  Wk  InSender.o [6]
+std::allocator<char>::deallocate(char *, unsigned int)
+                         0x800'3173    0xe  Code  Wk  InSender.o [6]
+std::allocator_traits<std::__sso_allocator<std::locale::facet *, (unsigned int)30>>::allocate(std::__sso_allocator<std::locale::facet *, (unsigned int)30> &, unsigned int)
+                         0x800'3135   0x2a  Code  Wk  locale.o [8]
+std::allocator_traits<std::__sso_allocator<std::locale::facet *, (unsigned int)30>>::deallocate(std::__sso_allocator<std::locale::facet *, (unsigned int)30> &, std::locale::facet **, unsigned int)
+                         0x800'2cfb   0x16  Code  Wk  locale.o [8]
+std::allocator_traits<std::allocator<char>>::deallocate(std::allocator<char>&, char *, unsigned int)
+                         0x800'2ce7    0x8  Code  Wk  InSender.o [6]
+std::allocator_traits<std::allocator<std::__tree_node<std::__value_type<_Locale_Profile_t const *, int>, void *>>>::deallocate(std::allocator<std::__tree_node<std::__value_type<_Locale_Profile_t const *, int>, void *>>&, std::__tree_node<std::__value_type<_Locale_Profile_t const *, int>, void *> *, unsigned int)
+                         0x800'30d9    0xc  Code  Wk  iar_newlocale.o [8]
+std::array<unsigned int, (unsigned int)512>::data()
+                         0x800'5511    0x2  Code  Wk  main.o [1]
+std::basic_ostringstream<char, std::char_traits<char>, std::allocator<char>>::basic_ostringstream()
+                         0x800'5811   0x20  Code  Wk  InSender.o [6]
+std::basic_ostringstream<char, std::char_traits<char>, std::allocator<char>>::basic_ostringstream() [subobject]
+                         0x800'59b3   0x2a  Code  Wk  InSender.o [6]
+std::basic_ostringstream<char, std::char_traits<char>, std::allocator<char>>::str() const
+                         0x800'58cd    0xa  Code  Wk  InSender.o [6]
+std::basic_ostringstream<char, std::char_traits<char>, std::allocator<char>>::~basic_ostringstream()
+                         0x800'5941   0x20  Code  Wk  InSender.o [6]
+std::basic_ostringstream<char, std::char_traits<char>, std::allocator<char>>::~basic_ostringstream() [subobject]
+                         0x800'5cf5   0x26  Code  Wk  InSender.o [6]
+std::basic_stringbuf<char, std::char_traits<char>, std::allocator<char>>::basic_stringbuf(unsigned int)
+                         0x800'5d89   0x28  Code  Wk  InSender.o [6]
+std::basic_stringbuf<char, std::char_traits<char>, std::allocator<char>>::overflow(int)
+                         0x800'637f   0xce  Code  Wk  ios.instantiations.o [8]
+std::basic_stringbuf<char, std::char_traits<char>, std::allocator<char>>::str() const
+                         0x800'5bd9   0x34  Code  Wk  ios.instantiations.o [8]
+std::basic_stringbuf<char, std::char_traits<char>, std::allocator<char>>::~basic_stringbuf()
+                         0x800'5f09   0x20  Code  Wk  InSender.o [6]
+std::char_traits<char>::assign(char &, char const &)
+                         0x800'5f01    0x6  Code  Wk  InSender.o [6]
+std::char_traits<char>::assign(char *, unsigned int, char)
+                         0x800'6603    0xe  Code  Wk  string.o [8]
+std::char_traits<char>::copy(char *, char const *, unsigned int)
+                         0x800'31fb    0xe  Code  Wk  string.o [8]
+std::chrono::__duration_cast<std::chrono::duration<long long, std::ratio<(long long)1, (long long)1000>>, std::chrono::duration<unsigned int, std::ratio<(long long)10, (long long)1000>>, std::ratio<(long long)1, (long long)10>, (bool)1, (bool)0>::operator ()(std::chrono::duration<long long, std::ratio<(long long)1, (long long)1000>> const &) const
+                         0x800'5979   0x20  Code  Wk  InSender.o [6]
+std::chrono::duration<long long, std::ratio<(long long)1, (long long)1000>>::count() const
+                         0x800'5d31    0x6  Code  Wk  InSender.o [6]
+std::chrono::duration<unsigned int, std::ratio<(long long)10, (long long)1000>>::count() const
+                         0x800'573d    0x4  Code  Wk  InSender.o [6]
+std::chrono::duration<unsigned int, std::ratio<(long long)10, (long long)1000>>::duration<unsigned int>(unsigned int const &, std::enable_if<(std::is_convertible<unsigned int, unsigned int>::value&&((bool)0||(!std::chrono::treat_as_floating_point<unsigned int>::value))), void>::type *)
+                         0x800'5d37    0x6  Code  Wk  InSender.o [6]
+std::codecvt<char, char, _Mbstatet>::codecvt(unsigned int)
+                         0x800'2709   0x18  Code  Wk  locale.o [8]
+std::codecvt<char, char, _Mbstatet>::id
+                        0x2000'1760    0x8  Data  Gb  locale.o [8]
+std::codecvt<char, char, _Mbstatet>::~codecvt() [deleting]
+                         0x800'1dd9    0x4  Code  Gb  locale.o [8]
+std::codecvt<char16_t, char, _Mbstatet>::codecvt(unsigned int)
+                         0x800'2721   0x18  Code  Wk  locale.o [8]
+std::codecvt<char16_t, char, _Mbstatet>::id
+                        0x2000'1770    0x8  Data  Gb  locale.o [8]
+std::codecvt<char16_t, char, _Mbstatet>::~codecvt() [deleting]
+                         0x800'1de7    0x4  Code  Gb  locale.o [8]
+std::codecvt<char32_t, char, _Mbstatet>::codecvt(unsigned int)
+                         0x800'2739   0x18  Code  Wk  locale.o [8]
+std::codecvt<char32_t, char, _Mbstatet>::id
+                        0x2000'1778    0x8  Data  Gb  locale.o [8]
+std::codecvt<char32_t, char, _Mbstatet>::~codecvt() [deleting]
+                         0x800'1deb    0x4  Code  Gb  locale.o [8]
+std::codecvt<wchar_t, char, _Mbstatet>::codecvt(unsigned int)
+                         0x800'2469   0x16  Code  Gb  locale.o [8]
+std::codecvt<wchar_t, char, _Mbstatet>::id
+                        0x2000'1768    0x8  Data  Gb  locale.o [8]
+std::codecvt<wchar_t, char, _Mbstatet>::~codecvt()
+                         0x800'2489   0x1c  Code  Gb  locale.o [8]
+std::codecvt<wchar_t, char, _Mbstatet>::~codecvt() [deleting]
+                         0x800'1ddd    0xa  Code  Gb  locale.o [8]
+std::collate<char>::collate(unsigned int)
+                         0x800'26c1   0x18  Code  Wk  locale.o [8]
+std::collate<char>::id  0x2000'1c64    0x8  Data  Wk  locale.o [8]
+std::collate<char>::~collate() [deleting]
+                         0x800'7105   0x14  Code  Wk  locale.o [8]
+std::collate<wchar_t>::collate(unsigned int)
+                         0x800'26d9   0x18  Code  Wk  locale.o [8]
+std::collate<wchar_t>::id
+                        0x2000'1c6c    0x8  Data  Wk  locale.o [8]
+std::collate<wchar_t>::~collate() [deleting]
+                         0x800'7119   0x14  Code  Wk  locale.o [8]
+std::ctype<char>::classic_table() noexcept::builtin_table
+                         0x800'46e0  0x400  Data  Lc  locale.o [8]
+std::ctype<char>::do_widen(char const *, char const *, char *) const
+                         0x800'2445   0x14  Code  Gb  locale.o [8]
+std::ctype<char>::do_widen(char) const
+                         0x800'2441    0x4  Code  Gb  locale.o [8]
+std::ctype<char>::id    0x2000'1758    0x8  Data  Gb  locale.o [8]
+std::ctype<char>::widen(char const *, char const *, char *) const
+                         0x800'4d17    0xa  Code  Wk  locale.o [8]
+std::ctype<char>::~ctype()
+                         0x800'242b   0x16  Code  Gb  locale.o [8]
+std::ctype<char>::~ctype() [deleting]
+                         0x800'1dc5   0x14  Code  Gb  locale.o [8]
+std::ctype<wchar_t>::ctype(unsigned int)
+                         0x800'26f1   0x18  Code  Wk  locale.o [8]
+std::ctype<wchar_t>::id
+                        0x2000'1750    0x8  Data  Gb  locale.o [8]
+std::ctype<wchar_t>::~ctype() [deleting]
+                         0x800'1db1    0x2  Code  Gb  locale.o [8]
+std::enable_if<(std::is_move_constructible<std::locale::facet **>::value&&std::is_move_assignable<std::locale::facet **>::value), void>::type std::swap<std::locale::facet **>(std::locale::facet ** &, std::locale::facet ** &)
+                         0x800'2d7b    0xa  Code  Wk  locale.o [8]
+std::enable_if<std::chrono::__is_duration<std::chrono::duration<unsigned int, std::ratio<(long long)10, (long long)1000>>>::value, std::chrono::duration<unsigned int, std::ratio<(long long)10, (long long)1000>>>::type std::chrono::duration_cast<std::chrono::duration<unsigned int, std::ratio<(long long)10, (long long)1000>>, long long, std::ratio<(long long)1, (long long)1000>>(std::chrono::duration<long long, std::ratio<(long long)1, (long long)1000>> const &)
+                         0x800'5731    0xc  Code  Wk  InSender.o [6]
+std::ios::basic_ios()    0x800'5d4d   0x18  Code  Wk  InSender.o [6]
+std::ios::basic_ios() [subobject]
+                         0x800'59ab    0x8  Code  Wk  InSender.o [6]
+std::ios::fill() const   0x800'5ad5   0x1a  Code  Wk  ios.instantiations.o [8]
+std::ios::init(std::streambuf *)
+                         0x800'5f3b   0x16  Code  Wk  InSender.o [6]
+std::ios::widen(char) const
+                         0x800'5e05   0x2c  Code  Wk  ios.instantiations.o [8]
+std::ios::~basic_ios() [subobject]
+                         0x800'5d1b    0xc  Code  Wk  ios.instantiations.o [8]
+std::ios_base::__call_callbacks(std::ios_base::event)
+                         0x800'5a23   0x22  Code  Gb  ios.o [8]
+std::ios_base::clear(unsigned int)
+                         0x800'5a7d   0x16  Code  Gb  ios.o [8]
+std::ios_base::getloc() const
+                         0x800'5a45    0x6  Code  Gb  ios.o [8]
+std::ios_base::init(void *)
+                         0x800'5a93   0x3e  Code  Gb  ios.o [8]
+std::ios_base::ios_base()
+                         0x800'607d    0xc  Code  Wk  InSender.o [6]
+std::ios_base::ios_base() [subobject]
+                         0x800'5f33    0x8  Code  Wk  InSender.o [6]
+std::ios_base::~ios_base()
+                         0x800'5a4b   0x32  Code  Gb  ios.o [8]
+std::ios_base::~ios_base() [subobject]
+                         0x800'5a21    0x2  Code  Gb  ios.o [8]
+std::locale::__global()
+                         0x800'2301   0x2e  Code  Gb  locale.o [8]
+std::locale::__global()::g
+                        0x2000'1c48    0x4  Data  Lc  locale.o [8]
+std::locale::__global()::static guard for g
+                        0x2000'1c40    0x1  Data  Lc  locale.o [8]
+std::locale::__imp::__imp(unsigned int)
+                         0x800'1e2f  0x396  Code  Gb  locale.o [8]
+std::locale::__imp::has_facet(long) const
+                         0x800'2a6d   0x1a  Code  Wk  locale.o [8]
+std::locale::__imp::install(std::locale::facet *, long)
+                         0x800'2235   0x74  Code  Gb  locale.o [8]
+std::locale::__imp::make_classic()
+                         0x800'22c1   0x1a  Code  Gb  locale.o [8]
+std::locale::__imp::make_classic()::buf
+                        0x2000'18b8    0x4  Data  Lc  locale.o [8]
+std::locale::__imp::make_global()::buf
+                        0x2000'1c44    0x4  Data  Lc  locale.o [8]
+std::locale::__imp::use_facet(long) const
+                         0x800'22a9   0x18  Code  Gb  locale.o [8]
+std::locale::__imp::~__imp()
+                         0x800'21e5   0x4a  Code  Gb  locale.o [8]
+std::locale::__imp::~__imp() [deleting]
+                         0x800'1d91   0x14  Code  Gb  locale.o [8]
+std::locale::classic()   0x800'22db   0x18  Code  Gb  locale.o [8]
+std::locale::classic()::c
+                        0x2000'1d08    0x4  Data  Lc  locale.o [8]
+std::locale::classic()::static guard for c
+                        0x2000'1d04    0x1  Data  Lc  locale.o [8]
+std::locale::facet::__on_zero_shared()
+                         0x800'23cd    0xa  Code  Gb  locale.o [8]
+std::locale::facet::facet(unsigned int) [subobject]
+                         0x800'2aa5   0x10  Code  Wk  locale.o [8]
+std::locale::facet::~facet() [deleting]
+                         0x800'1d8d    0x4  Code  Gb  locale.o [8]
+std::locale::id::__get()
+                         0x800'23d7   0x3c  Code  Gb  locale.o [8]
+std::locale::id::__init()
+                         0x800'241d    0xe  Code  Gb  locale.o [8]
+std::locale::id::__next_id
+                        0x2000'1d78    0x4  Data  Gb  locale.o [8]
+std::locale::locale()    0x800'2369    0x8  Code  Gb  locale.o [8]
+std::locale::locale(const std::locale&)
+                         0x800'238d    0x2  Code  Gb  locale.o [8]
+std::locale::use_facet(std::locale::id &) const
+                         0x800'23b9   0x14  Code  Gb  locale.o [8]
+std::locale::~locale()   0x800'23a7    0x2  Code  Gb  locale.o [8]
+std::map<_Locale_Profile_t const *, int, std::less<_Locale_Profile_t const *>, std::allocator<std::pair<_Locale_Profile_t const *const , int>>>::~map()
+                         0x800'72d5    0xe  Code  Wk  iar_newlocale.o [8]
+std::messages<char>::id
+                        0x2000'1cf4    0x8  Data  Wk  locale.o [8]
+std::messages<char>::messages(unsigned int)
+                         0x800'2909   0x18  Code  Wk  locale.o [8]
+std::messages<char>::~messages() [deleting]
+                         0x800'726d   0x14  Code  Wk  locale.o [8]
+std::messages<wchar_t>::id
+                        0x2000'1cfc    0x8  Data  Wk  locale.o [8]
+std::messages<wchar_t>::messages(unsigned int)
+                         0x800'2921   0x18  Code  Wk  locale.o [8]
+std::messages<wchar_t>::~messages() [deleting]
+                         0x800'7281   0x14  Code  Wk  locale.o [8]
+std::money_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::id
+                        0x2000'1cd4    0x8  Data  Wk  locale.o [8]
+std::money_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::money_get(unsigned int)
+                         0x800'2811   0x18  Code  Wk  locale.o [8]
+std::money_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::~money_get() [deleting]
+                         0x800'721d   0x14  Code  Wk  locale.o [8]
+std::money_get<wchar_t, std::istreambuf_iterator<wchar_t, std::char_traits<wchar_t>>>::id
+                        0x2000'1cdc    0x8  Data  Wk  locale.o [8]
+std::money_get<wchar_t, std::istreambuf_iterator<wchar_t, std::char_traits<wchar_t>>>::money_get(unsigned int)
+                         0x800'2829   0x18  Code  Wk  locale.o [8]
+std::money_get<wchar_t, std::istreambuf_iterator<wchar_t, std::char_traits<wchar_t>>>::~money_get() [deleting]
+                         0x800'7231   0x14  Code  Wk  locale.o [8]
+std::money_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>::id
+                        0x2000'1ce4    0x8  Data  Wk  locale.o [8]
+std::money_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>::money_put(unsigned int)
+                         0x800'2841   0x18  Code  Wk  locale.o [8]
+std::money_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>::~money_put() [deleting]
+                         0x800'7245   0x14  Code  Wk  locale.o [8]
+std::money_put<wchar_t, std::ostreambuf_iterator<wchar_t, std::char_traits<wchar_t>>>::id
+                        0x2000'1cec    0x8  Data  Wk  locale.o [8]
+std::money_put<wchar_t, std::ostreambuf_iterator<wchar_t, std::char_traits<wchar_t>>>::money_put(unsigned int)
+                         0x800'2859   0x18  Code  Wk  locale.o [8]
+std::money_put<wchar_t, std::ostreambuf_iterator<wchar_t, std::char_traits<wchar_t>>>::~money_put() [deleting]
+                         0x800'7259   0x14  Code  Wk  locale.o [8]
+std::moneypunct<char, (bool)0>::id
+                        0x2000'1cb4    0x8  Data  Wk  locale.o [8]
+std::moneypunct<char, (bool)0>::moneypunct(unsigned int)
+                         0x800'27b1   0x18  Code  Wk  locale.o [8]
+std::moneypunct<char, (bool)0>::~moneypunct() [deleting]
+                         0x800'71cd   0x14  Code  Wk  locale.o [8]
+std::moneypunct<char, (bool)1>::id
+                        0x2000'1cbc    0x8  Data  Wk  locale.o [8]
+std::moneypunct<char, (bool)1>::moneypunct(unsigned int)
+                         0x800'27c9   0x18  Code  Wk  locale.o [8]
+std::moneypunct<char, (bool)1>::~moneypunct() [deleting]
+                         0x800'71e1   0x14  Code  Wk  locale.o [8]
+std::moneypunct<wchar_t, (bool)0>::id
+                        0x2000'1cc4    0x8  Data  Wk  locale.o [8]
+std::moneypunct<wchar_t, (bool)0>::moneypunct(unsigned int)
+                         0x800'27e1   0x18  Code  Wk  locale.o [8]
+std::moneypunct<wchar_t, (bool)0>::~moneypunct() [deleting]
+                         0x800'71f5   0x14  Code  Wk  locale.o [8]
+std::moneypunct<wchar_t, (bool)1>::id
+                        0x2000'1ccc    0x8  Data  Wk  locale.o [8]
+std::moneypunct<wchar_t, (bool)1>::moneypunct(unsigned int)
+                         0x800'27f9   0x18  Code  Wk  locale.o [8]
+std::moneypunct<wchar_t, (bool)1>::~moneypunct() [deleting]
+                         0x800'7209   0x14  Code  Wk  locale.o [8]
+std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::id
+                        0x2000'1c74    0x8  Data  Wk  locale.o [8]
+std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::num_get(unsigned int)
+                         0x800'2751   0x18  Code  Wk  locale.o [8]
+std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::~num_get() [deleting]
+                         0x800'712d   0x14  Code  Wk  locale.o [8]
+std::num_get<wchar_t, std::istreambuf_iterator<wchar_t, std::char_traits<wchar_t>>>::id
+                        0x2000'1c7c    0x8  Data  Wk  locale.o [8]
+std::num_get<wchar_t, std::istreambuf_iterator<wchar_t, std::char_traits<wchar_t>>>::num_get(unsigned int)
+                         0x800'2769   0x18  Code  Wk  locale.o [8]
+std::num_get<wchar_t, std::istreambuf_iterator<wchar_t, std::char_traits<wchar_t>>>::~num_get() [deleting]
+                         0x800'7141   0x14  Code  Wk  locale.o [8]
+std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>::do_put(std::ostreambuf_iterator<char, std::char_traits<char>>, std::ios_base &, char, double) const
+                         0x800'60b9  0x158  Code  Wk  locale.o [8]
+std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>::do_put(std::ostreambuf_iterator<char, std::char_traits<char>>, std::ios_base &, char, double) const::string
+                         0x800'165b    0x1  Data  Wk  locale.o [8]
+std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>::id
+                        0x2000'1c84    0x8  Data  Wk  locale.o [8]
+std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>::num_put(unsigned int)
+                         0x800'2781   0x18  Code  Wk  locale.o [8]
+std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>::put(std::ostreambuf_iterator<char, std::char_traits<char>>, std::ios_base &, char, double) const
+                         0x800'5b39    0xc  Code  Wk  ios.instantiations.o [8]
+std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>::~num_put() [deleting]
+                         0x800'7155   0x14  Code  Wk  locale.o [8]
+std::num_put<wchar_t, std::ostreambuf_iterator<wchar_t, std::char_traits<wchar_t>>>::id
+                        0x2000'1c8c    0x8  Data  Wk  locale.o [8]
+std::num_put<wchar_t, std::ostreambuf_iterator<wchar_t, std::char_traits<wchar_t>>>::num_put(unsigned int)
+                         0x800'2799   0x18  Code  Wk  locale.o [8]
+std::num_put<wchar_t, std::ostreambuf_iterator<wchar_t, std::char_traits<wchar_t>>>::~num_put() [deleting]
+                         0x800'7169   0x14  Code  Wk  locale.o [8]
+std::numpunct<char>::do_decimal_point() const
+                         0x800'2513    0x4  Code  Gb  locale.o [8]
+std::numpunct<char>::do_grouping() const
+                         0x800'251b    0x6  Code  Gb  locale.o [8]
+std::numpunct<char>::do_thousands_sep() const
+                         0x800'2517    0x4  Code  Gb  locale.o [8]
+std::numpunct<char>::id
+                        0x2000'1780    0x8  Data  Gb  locale.o [8]
+std::numpunct<char>::numpunct(unsigned int)
+                         0x800'24a9   0x1c  Code  Gb  locale.o [8]
+std::numpunct<char>::~numpunct()
+                         0x800'24e7   0x10  Code  Gb  locale.o [8]
+std::numpunct<char>::~numpunct() [deleting]
+                         0x800'1def    0x4  Code  Gb  locale.o [8]
+std::numpunct<wchar_t>::id
+                        0x2000'1788    0x8  Data  Gb  locale.o [8]
+std::numpunct<wchar_t>::numpunct(unsigned int)
+                         0x800'24c5   0x1a  Code  Gb  locale.o [8]
+std::numpunct<wchar_t>::~numpunct()
+                         0x800'24f7    0xe  Code  Gb  locale.o [8]
+std::numpunct<wchar_t>::~numpunct() [deleting]
+                         0x800'1df3    0x4  Code  Gb  locale.o [8]
+std::ostream::basic_ostream(std::streambuf *) [subobject]
+                         0x800'5d65   0x24  Code  Wk  InSender.o [6]
+std::ostream::flush()    0x800'5db1   0x54  Code  Wk  ios.instantiations.o [8]
+std::ostream::operator <<(float)
+                         0x800'5831   0x9c  Code  Wk  ios.instantiations.o [8]
+std::ostream::sentry::sentry(std::ostream&)
+                         0x800'59dd   0x42  Code  Wk  ios.instantiations.o [8]
+std::ostream::sentry::~sentry()
+                         0x800'5b45   0x94  Code  Wk  ios.instantiations.o [8]
+std::ostream::~basic_ostream() [subobject]
+                         0x800'5f29    0x2  Code  Wk  ios.instantiations.o [8]
+std::ostreambuf_iterator<char, std::char_traits<char>> std::__pad_and_output<char, std::char_traits<char>>(std::ostreambuf_iterator<char, std::char_traits<char>>, char const *, char const *, char const *, std::ios_base &, char)
+                         0x800'6225   0xa2  Code  Wk  ios.instantiations.o [8]
+std::pointer_traits<char *>::pointer_to(char &)
+                         0x800'4d5f    0x8  Code  Wk  InSender.o [6]
+std::remove_reference<std::__compressed_pair<std::string::__rep, std::allocator<char>> &>::type && std::move<std::__compressed_pair<std::string::__rep, std::allocator<char>> &>(std::__compressed_pair<std::string::__rep, std::allocator<char>> & &&)
+                         0x800'5eeb    0x2  Code  Wk  InSender.o [6]
+std::remove_reference<std::allocator<char>&>::type && std::move<std::allocator<char>&>(std::allocator<char>& &&)
+                         0x800'60ad    0x2  Code  Wk  InSender.o [6]
+std::remove_reference<std::string&>::type && std::move<std::string&>(std::string& &&)
+                         0x800'5c27    0x2  Code  Wk  InSender.o [6]
+std::streambuf::basic_streambuf()
+                         0x800'6089   0x24  Code  Wk  ios.instantiations.o [8]
+std::streambuf::basic_streambuf() [subobject]
+                         0x800'5f51    0x4  Code  Wk  ios.instantiations.o [8]
+std::streambuf::overflow(int)
+                         0x800'1097    0x6  Code  Wk  ios.instantiations.o [8]
+std::streambuf::setp(char *, char *)
+                         0x800'64dd    0x8  Code  Wk  ios.instantiations.o [8]
+std::streambuf::sputc(char)
+                         0x800'64e5   0x20  Code  Wk  ios.instantiations.o [8]
+std::streambuf::sync()   0x800'73a5    0x4  Code  Wk  ios.instantiations.o [8]
+std::streambuf::xsputn(char const *, int)
+                         0x800'668d   0x60  Code  Wk  ios.instantiations.o [8]
+std::streambuf::~basic_streambuf() [subobject]
+                         0x800'6055   0x18  Code  Wk  ios.instantiations.o [8]
+std::string std::operator +<char, std::char_traits<char>, std::allocator<char>>(std::string&&, char const *)
+                         0x800'58d7   0x1a  Code  Wk  InSender.o [6]
+std::string::__alloc()   0x800'2cc7    0x8  Code  Wk  InSender.o [6]
+std::string::__get_long_cap() const
+                         0x800'2cd9    0xe  Code  Wk  InSender.o [6]
+std::string::__get_long_pointer()
+                         0x800'2ccf    0xa  Code  Wk  InSender.o [6]
+std::string::__get_long_size() const
+                         0x800'4d3f    0xa  Code  Wk  InSender.o [6]
+std::string::__get_pointer()
+                         0x800'4d21   0x1e  Code  Wk  InSender.o [6]
+std::string::__get_short_pointer()
+                         0x800'4d53    0xc  Code  Wk  InSender.o [6]
+std::string::__get_short_size() const
+                         0x800'4d49    0xa  Code  Wk  InSender.o [6]
+std::string::__grow_by(unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int)
+                         0x800'6505   0xa0  Code  Wk  string.o [8]
+std::string::__grow_by_and_replace(unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, char const *)
+                         0x800'5f79   0xc4  Code  Wk  string.o [8]
+std::string::__init_copy_ctor_external(char const *, unsigned int)
+                         0x800'30ed   0x3e  Code  Wk  string.o [8]
+std::string::__is_long() const
+                         0x800'2cb9    0xe  Code  Wk  InSender.o [6]
+std::string::__move_assign(std::string&, std::integral_constant<bool, (bool)1>)
+                         0x800'5c47   0x74  Code  Wk  InSender.o [6]
+std::string::__move_assign_alloc(std::string&)
+                         0x800'5eed    0x8  Code  Wk  InSender.o [6]
+std::string::__move_assign_alloc(std::string&, std::integral_constant<bool, (bool)1>)
+                         0x800'603d   0x18  Code  Wk  InSender.o [6]
+std::string::__set_short_size(unsigned int)
+                         0x800'5ef5    0xc  Code  Wk  InSender.o [6]
+std::string::__set_size(unsigned int)
+                         0x800'5f69    0xe  Code  Wk  string.o [8]
+std::string::__zero()    0x800'2bf1   0x18  Code  Wk  InSender.o [6]
+std::string::append(char const *)
+                         0x800'5c0d   0x1a  Code  Wk  string.o [8]
+std::string::append(char const *, unsigned int)
+                         0x800'5e85   0x66  Code  Wk  string.o [8]
+std::string::append(unsigned int, char)
+                         0x800'65a5   0x5e  Code  Wk  string.o [8]
+std::string::basic_string()
+                         0x800'546b   0x1a  Code  Wk  InSender.o [6]
+std::string::basic_string(const std::string&)
+                         0x800'2c09   0x32  Code  Wk  locale.o [8]
+std::string::basic_string(std::string&&)
+                         0x800'5c29   0x1e  Code  Wk  InSender.o [6]
+std::string::basic_string(unsigned int, char)
+                         0x800'62c7   0x50  Code  Wk  ios.instantiations.o [8]
+std::string::basic_string<char *, void>(char *, char *, const std::allocator<char>&)
+                         0x800'5e35   0x50  Code  Wk  ios.instantiations.o [8]
+std::string::basic_string<std::nullptr_t>(char const *)
+                         0x800'2647   0x56  Code  Wk  ios.o [8]
+std::string::capacity() const
+                         0x800'5f55   0x14  Code  Wk  ios.instantiations.o [8]
+std::string::operator =(std::string&&)
+                         0x800'58f1    0xe  Code  Wk  InSender.o [6]
+std::string::operator [](unsigned int)
+                         0x800'5cdd    0xc  Code  Wk  InSender.o [6]
+std::string::push_back(char)
+                         0x800'644d   0x5a  Code  Wk  string.o [8]
+std::string::resize(unsigned int, char)
+                         0x800'64a7   0x36  Code  Wk  string.o [8]
+std::string::size() const
+                         0x800'4ce1   0x1e  Code  Wk  InSender.o [6]
+std::string::~basic_string()
+                         0x800'2939   0x32  Code  Wk  InSender.o [6]
+std::time_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::id
+                        0x2000'1c94    0x8  Data  Wk  locale.o [8]
+std::time_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::time_get(unsigned int)
+                         0x800'2871   0x28  Code  Wk  locale.o [8]
+std::time_get<char, std::istreambuf_iterator<char, std::char_traits<char>>>::~time_get() [deleting]
+                         0x800'717d   0x14  Code  Wk  locale.o [8]
+std::time_get<wchar_t, std::istreambuf_iterator<wchar_t, std::char_traits<wchar_t>>>::id
+                        0x2000'1c9c    0x8  Data  Wk  locale.o [8]
+std::time_get<wchar_t, std::istreambuf_iterator<wchar_t, std::char_traits<wchar_t>>>::time_get(unsigned int)
+                         0x800'2899   0x28  Code  Wk  locale.o [8]
+std::time_get<wchar_t, std::istreambuf_iterator<wchar_t, std::char_traits<wchar_t>>>::~time_get() [deleting]
+                         0x800'7191   0x14  Code  Wk  locale.o [8]
+std::time_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>::id
+                        0x2000'1ca4    0x8  Data  Wk  locale.o [8]
+std::time_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>::time_put(unsigned int)
+                         0x800'28c1   0x24  Code  Wk  locale.o [8]
+std::time_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>::~time_put()
+                         0x800'6f55   0x1e  Code  Wk  locale.o [8]
+std::time_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>::~time_put() [deleting]
+                         0x800'71a5   0x14  Code  Wk  locale.o [8]
+std::time_put<wchar_t, std::ostreambuf_iterator<wchar_t, std::char_traits<wchar_t>>>::id
+                        0x2000'1cac    0x8  Data  Wk  locale.o [8]
+std::time_put<wchar_t, std::ostreambuf_iterator<wchar_t, std::char_traits<wchar_t>>>::time_put(unsigned int)
+                         0x800'28e5   0x24  Code  Wk  locale.o [8]
+std::time_put<wchar_t, std::ostreambuf_iterator<wchar_t, std::char_traits<wchar_t>>>::~time_put()
+                         0x800'6f73   0x1e  Code  Wk  locale.o [8]
+std::time_put<wchar_t, std::ostreambuf_iterator<wchar_t, std::char_traits<wchar_t>>>::~time_put() [deleting]
+                         0x800'71b9   0x14  Code  Wk  locale.o [8]
+std::unique_ptr<char, void (*)(void *)>::reset(char *)
+                         0x800'6211   0x14  Code  Wk  locale.o [8]
+std::unique_ptr<std::locale::facet, std::<unnamed>::release>::~unique_ptr()
+                         0x800'1e1b   0x14  Code  Lc  locale.o [8]
+std::vector<std::locale::facet *, std::__sso_allocator<std::locale::facet *, (unsigned int)30>>::__annotate_delete() const
+                         0x800'296b    0x4  Code  Wk  locale.o [8]
+std::vector<std::locale::facet *, std::__sso_allocator<std::locale::facet *, (unsigned int)30>>::__append(unsigned int)
+                         0x800'29a5   0xac  Code  Wk  locale.o [8]
+std::vector<std::locale::facet *, std::__sso_allocator<std::locale::facet *, (unsigned int)30>>::__construct_at_end(unsigned int)
+                         0x800'2c6f   0x20  Code  Wk  locale.o [8]
+std::vector<std::locale::facet *, std::__sso_allocator<std::locale::facet *, (unsigned int)30>>::__destruct_at_end(std::locale::facet **)
+                         0x800'2a51   0x1c  Code  Wk  locale.o [8]
+std::vector<std::locale::facet *, std::__sso_allocator<std::locale::facet *, (unsigned int)30>>::__recommend(unsigned int) const
+                         0x800'2d11   0x3e  Code  Wk  locale.o [8]
+std::vector<std::locale::facet *, std::__sso_allocator<std::locale::facet *, (unsigned int)30>>::__vallocate(unsigned int)
+                         0x800'2c45   0x2a  Code  Wk  locale.o [8]
+std::vector<std::locale::facet *, std::__sso_allocator<std::locale::facet *, (unsigned int)30>>::clear()
+                         0x800'269d   0x22  Code  Wk  locale.o [8]
+std::vector<std::locale::facet *, std::__sso_allocator<std::locale::facet *, (unsigned int)30>>::max_size() const
+                         0x800'312b    0x6  Code  Wk  locale.o [8]
+std::vector<std::locale::facet *, std::__sso_allocator<std::locale::facet *, (unsigned int)30>>::size() const
+                         0x800'2999    0xc  Code  Wk  locale.o [8]
+std::vector<std::locale::facet *, std::__sso_allocator<std::locale::facet *, (unsigned int)30>>::vector(unsigned int)
+                         0x800'2621   0x26  Code  Wk  locale.o [8]
+strchr                   0x800'0ff1         Code  Gb  strchr.o [11]
+strlen                   0x800'1061         Code  Gb  strlen.o [11]
+ucMaxSysCallPriority    0x2000'1d8e    0x1  Data  Lc  port.o [5]
+ulMaxPRIGROUPValue      0x2000'1d20    0x4  Data  Lc  port.o [5]
+unsigned int RegisterBase<(unsigned int)1073742892, (unsigned int)32, ReadWriteMode>::Get<ReadWriteMode, void>()
+                         0x800'543d    0xc  Code  Wk  PWM.o [3]
+unsigned int const & std::max<unsigned int>(unsigned int const &, unsigned int const &)
+                         0x800'3181    0xc  Code  Wk  string.o [8]
+uxCriticalNesting       0x2000'0008    0x4  Data  Lc  port.o [5]
+uxCurrentNumberOfTasks  0x2000'1d30    0x4  Data  Lc  tasks.o [4]
+uxListRemove             0x800'3ae7   0x26  Code  Gb  list.o [4]
+uxPendedTicks           0x2000'1d40    0x4  Data  Lc  tasks.o [4]
+uxSchedulerSuspended    0x2000'1d58    0x4  Data  Lc  tasks.o [4]
+uxTaskNumber            0x2000'1d4c    0x4  Data  Lc  tasks.o [4]
+uxTopReadyPriority      0x2000'1d38    0x4  Data  Lc  tasks.o [4]
+vApplicationGetIdleTaskMemory
+                         0x800'3a0b    0xe  Code  Gb  tasks.o [4]
+vApplicationGetIdleTaskMemory::uxIdleTaskStack
+                        0x2000'153c  0x200  Data  Lc  tasks.o [4]
+vApplicationGetIdleTaskMemory::xIdleTaskTCB
+                        0x2000'1a6c   0x50  Data  Lc  tasks.o [4]
+vApplicationGetTimerTaskMemory
+                         0x800'3a1d   0x10  Code  Gb  tasks.o [4]
+vApplicationGetTimerTaskMemory::uxTimerTaskStack
+                        0x2000'113c  0x400  Data  Lc  tasks.o [4]
+vApplicationGetTimerTaskMemory::xTimerTaskTCB
+                        0x2000'1abc   0x50  Data  Lc  tasks.o [4]
+vListInitialise          0x800'3a75   0x1e  Code  Gb  list.o [4]
+vListInitialiseItem      0x800'3a93    0x6  Code  Gb  list.o [4]
+vListInsert              0x800'3ab1   0x36  Code  Gb  list.o [4]
+vListInsertEnd           0x800'3a99   0x18  Code  Gb  list.o [4]
+vPortEnableVFP           0x800'40b1         Code  Gb  portasm.o [5]
+vPortEnterCritical       0x800'3bcd   0x22  Code  Gb  port.o [5]
+vPortExitCritical        0x800'3bef   0x16  Code  Gb  port.o [5]
+vPortSVCHandler          0x800'407d         Code  Gb  portasm.o [5]
+vPortSetupTimerInterrupt
+                         0x800'4001   0x24  Code  Wk  port.o [5]
+vPortStartFirstTask      0x800'4099         Code  Gb  portasm.o [5]
+vPortValidateInterruptPriority
+                         0x800'3c31   0x14  Code  Gb  port.o [5]
+vQueueAddToRegistry      0x800'4667   0x24  Code  Gb  queue.o [4]
+vQueueWaitForMessageRestricted
+                         0x800'4695   0x4a  Code  Gb  queue.o [4]
+vTaskDelay               0x800'33b3   0x38  Code  Gb  tasks.o [4]
+vTaskMissedYield         0x800'37a7    0xa  Code  Gb  tasks.o [4]
+vTaskPlaceOnEventList    0x800'368f   0x1a  Code  Gb  tasks.o [4]
+vTaskPlaceOnEventListRestricted
+                         0x800'36a9   0x24  Code  Gb  tasks.o [4]
+vTaskPriorityInherit     0x800'384f   0x8a  Code  Gb  tasks.o [4]
+vTaskSetTimeOutState     0x800'373b   0x12  Code  Gb  tasks.o [4]
+vTaskStartScheduler      0x800'33eb   0x82  Code  Gb  tasks.o [4]
+vTaskSuspendAll          0x800'346d    0xc  Code  Gb  tasks.o [4]
+vTaskSwitchContext       0x800'3637   0x58  Code  Gb  tasks.o [4]
+void FieldValueBase<ADC1_CR1_RES_Values<ADC1::CR1, (unsigned int)24, (unsigned int)2, ReadWriteMode, ADC1::ADC1CR1Base>, ADC1::ADC1CR1Base, (unsigned int)0>::Set<ReadWriteMode, void>()
+                         0x800'50d9   0x10  Code  Wk  main.o [1]
+void FieldValueBase<ADC1_CR1_SCAN_Values<ADC1::CR1, (unsigned int)8, (unsigned int)1, ReadWriteMode, ADC1::ADC1CR1Base>, ADC1::ADC1CR1Base, (unsigned int)1>::Set<ReadWriteMode, void>()
+                         0x800'50e9   0x14  Code  Wk  main.o [1]
+void FieldValueBase<ADC1_CR2_ADON_Values<ADC1::CR2, (unsigned int)0, (unsigned int)1, ReadWriteMode, ADC1::ADC1CR2Base>, ADC1::ADC1CR2Base, (unsigned int)1>::Set<ReadWriteMode, void>()
+                         0x800'5139   0x14  Code  Wk  main.o [1]
+void FieldValueBase<ADC1_CR2_CONT_Values<ADC1::CR2, (unsigned int)1, (unsigned int)1, ReadWriteMode, ADC1::ADC1CR2Base>, ADC1::ADC1CR2Base, (unsigned int)1>::Set<ReadWriteMode, void>()
+                         0x800'50fd   0x14  Code  Wk  main.o [1]
+void FieldValueBase<ADC1_CR2_DDS_Values<ADC1::CR2, (unsigned int)9, (unsigned int)1, ReadWriteMode, ADC1::ADC1CR2Base>, ADC1::ADC1CR2Base, (unsigned int)1>::Set<ReadWriteMode, void>()
+                         0x800'5125   0x14  Code  Wk  main.o [1]
+void FieldValueBase<ADC1_CR2_DMA_Values<ADC1::CR2, (unsigned int)8, (unsigned int)1, ReadWriteMode, ADC1::ADC1CR2Base>, ADC1::ADC1CR2Base, (unsigned int)1>::Set<ReadWriteMode, void>()
+                         0x800'5111   0x14  Code  Wk  main.o [1]
+void FieldValueBase<ADC1_CR2_SWSTART_Values<ADC1::CR2, (unsigned int)30, (unsigned int)1, ReadWriteMode, ADC1::ADC1CR2Base>, ADC1::ADC1CR2Base, (unsigned int)1>::Set<ReadWriteMode, void>()
+                         0x800'514d   0x14  Code  Wk  main.o [1]
+void FieldValueBase<DMA2_S0CR_CHSEL_Values<DMA2::S0CR, (unsigned int)25, (unsigned int)3, ReadWriteMode, DMA2::DMA2S0CRBase>, DMA2::DMA2S0CRBase, (unsigned int)0>::Set<ReadWriteMode, void>()
+                         0x800'565d   0x10  Code  Wk  ADC.o [2]
+void FieldValueBase<DMA2_S0CR_CIRC_Values<DMA2::S0CR, (unsigned int)8, (unsigned int)1, ReadWriteMode, DMA2::DMA2S0CRBase>, DMA2::DMA2S0CRBase, (unsigned int)1>::Set<ReadWriteMode, void>()
+                         0x800'56b5   0x14  Code  Wk  ADC.o [2]
+void FieldValueBase<DMA2_S0CR_CT_Values<DMA2::S0CR, (unsigned int)19, (unsigned int)1, ReadWriteMode, DMA2::DMA2S0CRBase>, DMA2::DMA2S0CRBase, (unsigned int)0>::Set<ReadWriteMode, void>()
+                         0x800'566d   0x10  Code  Wk  ADC.o [2]
+void FieldValueBase<DMA2_S0CR_DBM_Values<DMA2::S0CR, (unsigned int)18, (unsigned int)1, ReadWriteMode, DMA2::DMA2S0CRBase>, DMA2::DMA2S0CRBase, (unsigned int)0>::Set<ReadWriteMode, void>()
+                         0x800'567d   0x10  Code  Wk  ADC.o [2]
+void FieldValueBase<DMA2_S0CR_DIR_Values<DMA2::S0CR, (unsigned int)6, (unsigned int)2, ReadWriteMode, DMA2::DMA2S0CRBase>, DMA2::DMA2S0CRBase, (unsigned int)0>::Set<ReadWriteMode, void>()
+                         0x800'56c9   0x10  Code  Wk  ADC.o [2]
+void FieldValueBase<DMA2_S0CR_EN_Values<DMA2::S0CR, (unsigned int)0, (unsigned int)1, ReadWriteMode, DMA2::DMA2S0CRBase>, DMA2::DMA2S0CRBase, (unsigned int)0>::Set<ReadWriteMode, void>()
+                         0x800'5961   0x10  Code  Wk  ADC.o [2]
+void FieldValueBase<DMA2_S0CR_EN_Values<DMA2::S0CR, (unsigned int)0, (unsigned int)1, ReadWriteMode, DMA2::DMA2S0CRBase>, DMA2::DMA2S0CRBase, (unsigned int)1>::Set<ReadWriteMode, void>()
+                         0x800'570d   0x14  Code  Wk  ADC.o [2]
+void FieldValueBase<DMA2_S0CR_MSIZE_Values<DMA2::S0CR, (unsigned int)13, (unsigned int)2, ReadWriteMode, DMA2::DMA2S0CRBase>, DMA2::DMA2S0CRBase, (unsigned int)2>::Set<ReadWriteMode, void>()
+                         0x800'568d   0x14  Code  Wk  ADC.o [2]
+void FieldValueBase<DMA2_S0CR_PFCTRL_Values<DMA2::S0CR, (unsigned int)5, (unsigned int)1, ReadWriteMode, DMA2::DMA2S0CRBase>, DMA2::DMA2S0CRBase, (unsigned int)0>::Set<ReadWriteMode, void>()
+                         0x800'56d9   0x10  Code  Wk  ADC.o [2]
+void FieldValueBase<DMA2_S0CR_PSIZE_Values<DMA2::S0CR, (unsigned int)11, (unsigned int)2, ReadWriteMode, DMA2::DMA2S0CRBase>, DMA2::DMA2S0CRBase, (unsigned int)2>::Set<ReadWriteMode, void>()
+                         0x800'56a1   0x14  Code  Wk  ADC.o [2]
+void FieldValueBase<GPIOA_AFRL_AFRL7_Values<GPIOA::AFRL, (unsigned int)12, (unsigned int)4, ReadWriteMode, GPIOA::GPIOAAFRLBase>, GPIOA::GPIOAAFRLBase, (unsigned int)7>::Set<ReadWriteMode, void>()
+                         0x800'5289   0x14  Code  Wk  main.o [1]
+void FieldValueBase<GPIOA_AFRL_AFRL7_Values<GPIOA::AFRL, (unsigned int)8, (unsigned int)4, ReadWriteMode, GPIOA::GPIOAAFRLBase>, GPIOA::GPIOAAFRLBase, (unsigned int)7>::Set<ReadWriteMode, void>()
+                         0x800'5275   0x14  Code  Wk  main.o [1]
+void FieldValueBase<GPIOA_MODER_MODER15_Values<GPIOA::MODER, (unsigned int)0, (unsigned int)2, ReadWriteMode, GPIOA::GPIOAMODERBase>, GPIOA::GPIOAMODERBase, (unsigned int)3>::Set<ReadWriteMode, void>()
+                         0x800'509d   0x14  Code  Wk  main.o [1]
+void FieldValueBase<GPIOA_MODER_MODER15_Values<GPIOA::MODER, (unsigned int)4, (unsigned int)2, ReadWriteMode, GPIOA::GPIOAMODERBase>, GPIOA::GPIOAMODERBase, (unsigned int)2>::Set<ReadWriteMode, void>()
+                         0x800'524d   0x14  Code  Wk  main.o [1]
+void FieldValueBase<GPIOA_MODER_MODER15_Values<GPIOA::MODER, (unsigned int)6, (unsigned int)2, ReadWriteMode, GPIOA::GPIOAMODERBase>, GPIOA::GPIOAMODERBase, (unsigned int)2>::Set<ReadWriteMode, void>()
+                         0x800'5261   0x14  Code  Wk  main.o [1]
+void FieldValueBase<GPIOC_AFRL_AFRL7_Values<GPIOC::AFRH, (unsigned int)0, (unsigned int)4, ReadWriteMode, GPIOC::GPIOCAFRHBase>, GPIOC::GPIOCAFRHBase, (unsigned int)2>::Set<ReadWriteMode, void>()
+                         0x800'5175   0x14  Code  Wk  main.o [1]
+void FieldValueBase<GPIOC_MODER_MODER15_Values<GPIOC::MODER, (unsigned int)16, (unsigned int)2, ReadWriteMode, GPIOC::GPIOCMODERBase>, GPIOC::GPIOCMODERBase, (unsigned int)2>::Set<ReadWriteMode, void>()
+                         0x800'5161   0x14  Code  Wk  main.o [1]
+void FieldValueBase<RCC_AHB1ENR_DMA2EN_Values<RCC::AHB1ENR, (unsigned int)22, (unsigned int)1, ReadWriteMode, RCC::RCCAHB1ENRBase>, RCC::RCCAHB1ENRBase, (unsigned int)1>::Set<ReadWriteMode, void>()
+                         0x800'50c5   0x14  Code  Wk  main.o [1]
+void FieldValueBase<RCC_AHB1ENR_DMA2EN_Values<RCC::APB1ENR, (unsigned int)1, (unsigned int)1, ReadWriteMode, RCC::RCCAPB1ENRBase>, RCC::RCCAPB1ENRBase, (unsigned int)1>::Set<ReadWriteMode, void>()
+                         0x800'5189   0x14  Code  Wk  main.o [1]
+void FieldValueBase<RCC_AHB1ENR_DMA2EN_Values<RCC::APB1ENR, (unsigned int)17, (unsigned int)1, ReadWriteMode, RCC::RCCAPB1ENRBase>, RCC::RCCAPB1ENRBase, (unsigned int)1>::Set<ReadWriteMode, void>()
+                         0x800'522d   0x14  Code  Wk  main.o [1]
+void FieldValueBase<RCC_AHB1ENR_DMA2EN_Values<RCC::APB2ENR, (unsigned int)8, (unsigned int)1, ReadWriteMode, RCC::RCCAPB2ENRBase>, RCC::RCCAPB2ENRBase, (unsigned int)1>::Set<ReadWriteMode, void>()
+                         0x800'50b1   0x14  Code  Wk  main.o [1]
+void FieldValueBase<RCC_AHB1ENR_GPIOAEN_Values<RCC::AHB1ENR, (unsigned int)0, (unsigned int)1, ReadWriteMode, RCC::RCCAHB1ENRBase>, RCC::RCCAHB1ENRBase, (unsigned int)1>::Set<ReadWriteMode, void>()
+                         0x800'5075   0x14  Code  Wk  main.o [1]
+void FieldValueBase<RCC_AHB1ENR_GPIOCEN_Values<RCC::AHB1ENR, (unsigned int)2, (unsigned int)1, ReadWriteMode, RCC::RCCAHB1ENRBase>, RCC::RCCAHB1ENRBase, (unsigned int)1>::Set<ReadWriteMode, void>()
+                         0x800'5089   0x14  Code  Wk  main.o [1]
+void FieldValueBase<TIM3_CCER_CC3E_Values<TIM3::CCER, (unsigned int)8, (unsigned int)1, ReadWriteMode, TIM3::TIM3CCERBase>, TIM3::TIM3CCERBase, (unsigned int)1>::Set<ReadWriteMode, void>()
+                         0x800'5205   0x14  Code  Wk  main.o [1]
+void FieldValueBase<TIM3_CCMR2_Output_OC3M_Values<TIM3::CCMR2_Output, (unsigned int)4, (unsigned int)3, ReadWriteMode, TIM3::TIM3CCMR2_OutputBase>, TIM3::TIM3CCMR2_OutputBase, (unsigned int)6>::Set<ReadWriteMode, void>()
+                         0x800'51b9   0x14  Code  Wk  main.o [1]
+void FieldValueBase<TIM3_CCMR2_Output_OC3PE_Values<TIM3::CCMR2_Output, (unsigned int)3, (unsigned int)1, ReadWriteMode, TIM3::TIM3CCMR2_OutputBase>, TIM3::TIM3CCMR2_OutputBase, (unsigned int)1>::Set<ReadWriteMode, void>()
+                         0x800'51cd   0x14  Code  Wk  main.o [1]
+void FieldValueBase<TIM3_CR1_CEN_Values<TIM3::CR1, (unsigned int)0, (unsigned int)1, ReadWriteMode, TIM3::TIM3CR1Base>, TIM3::TIM3CR1Base, (unsigned int)1>::Set<ReadWriteMode, void>()
+                         0x800'5219   0x14  Code  Wk  main.o [1]
+void FieldValueBase<TIM3_SR_UIF_Values<TIM3::SR, (unsigned int)0, (unsigned int)1, ReadWriteMode, TIM3::TIM3SRBase>, TIM3::TIM3SRBase, (unsigned int)0>::Set<ReadWriteMode, void>()
+                         0x800'51a9   0x10  Code  Wk  main.o [1]
+void FieldValueBase<USART2_CR1_M_Values<USART2::CR1, (unsigned int)12, (unsigned int)1, ReadWriteMode, USART2::USART2CR1Base>, USART2::USART2CR1Base, (unsigned int)0>::Set<ReadWriteMode, void>()
+                         0x800'529d   0x10  Code  Wk  main.o [1]
+void FieldValueBase<USART2_CR1_RE_Values<USART2::CR1, (unsigned int)2, (unsigned int)1, ReadWriteMode, USART2::USART2CR1Base>, USART2::USART2CR1Base, (unsigned int)1>::Set<ReadWriteMode, void>()
+                         0x800'52d5   0x14  Code  Wk  main.o [1]
+void FieldValueBase<USART2_CR1_TE_Values<USART2::CR1, (unsigned int)3, (unsigned int)1, ReadWriteMode, USART2::USART2CR1Base>, USART2::USART2CR1Base, (unsigned int)0>::Set<ReadWriteMode, void>()
+                         0x800'5cbd   0x10  Code  Wk  InSender.o [6]
+void FieldValueBase<USART2_CR1_TE_Values<USART2::CR1, (unsigned int)3, (unsigned int)1, ReadWriteMode, USART2::USART2CR1Base>, USART2::USART2CR1Base, (unsigned int)1>::Set<ReadWriteMode, void>()
+                         0x800'52c1   0x14  Code  Wk  InSender.o [6]
+void FieldValueBase<USART2_CR1_TXEIE_Values<USART2::CR1, (unsigned int)7, (unsigned int)1, ReadWriteMode, USART2::USART2CR1Base>, USART2::USART2CR1Base, (unsigned int)0>::Set<ReadWriteMode, void>()
+                         0x800'5ccd   0x10  Code  Wk  InSender.o [6]
+void FieldValueBase<USART2_CR1_TXEIE_Values<USART2::CR1, (unsigned int)7, (unsigned int)1, ReadWriteMode, USART2::USART2CR1Base>, USART2::USART2CR1Base, (unsigned int)1>::Set<ReadWriteMode, void>()
+                         0x800'52ad   0x14  Code  Wk  InSender.o [6]
+void FieldValueBase<USART2_CR1_UE_Values<USART2::CR1, (unsigned int)13, (unsigned int)1, ReadWriteMode, USART2::USART2CR1Base>, USART2::USART2CR1Base, (unsigned int)1>::Set<ReadWriteMode, void>()
+                         0x800'5305   0x14  Code  Wk  main.o [1]
+void FieldValueBase<USART2_CR2_STOP_Values<USART2::CR2, (unsigned int)12, (unsigned int)2, ReadWriteMode, USART2::USART2CR2Base>, USART2::USART2CR2Base, (unsigned int)0>::Set<ReadWriteMode, void>()
+                         0x800'52e9   0x10  Code  Wk  main.o [1]
+void OsWrapper::Rtos::CreateThread<InSender>(InSender &, char const *, OsWrapper::ThreadPriority)
+                         0x800'533d   0x24  Code  Wk  main.o [1]
+void OsWrapper::Rtos::CreateThread<PowerRegulationTask>(PowerRegulationTask &, char const *, OsWrapper::ThreadPriority)
+                         0x800'5319   0x24  Code  Wk  main.o [1]
+void OsWrapper::RtosWrapper::wCreateThread<OsWrapper::Rtos, InSender>(InSender &, char const *, OsWrapper::ThreadPriority, unsigned short, unsigned int *)
+                         0x800'5541   0x2c  Code  Wk  main.o [1]
+void OsWrapper::RtosWrapper::wCreateThread<OsWrapper::Rtos, PowerRegulationTask>(PowerRegulationTask &, char const *, OsWrapper::ThreadPriority, unsigned short, unsigned int *)
+                         0x800'5515   0x2c  Code  Wk  main.o [1]
+void RegisterBase<(unsigned int)1073742884, (unsigned int)32, ReadWriteMode>::Write<ReadWriteMode, void>(unsigned int)
+                         0x800'519d    0xc  Code  Wk  main.o [1]
+void RegisterBase<(unsigned int)1073742888, (unsigned int)32, ReadWriteMode>::Write<ReadWriteMode, void>(unsigned int)
+                         0x800'51e1    0xc  Code  Wk  main.o [1]
+void RegisterBase<(unsigned int)1073742892, (unsigned int)32, ReadWriteMode>::Write<ReadWriteMode, void>(unsigned int)
+                         0x800'51ed    0xc  Code  Wk  main.o [1]
+void RegisterBase<(unsigned int)1073742908, (unsigned int)32, ReadWriteMode>::Write<ReadWriteMode, void>(unsigned int)
+                         0x800'51f9    0xc  Code  Wk  main.o [1]
+void RegisterBase<(unsigned int)1073759236, (unsigned int)32, ReadWriteMode>::Write<ReadWriteMode, void>(unsigned int)
+                         0x800'5ce9    0xc  Code  Wk  InSender.o [6]
+void RegisterBase<(unsigned int)1073759240, (unsigned int)32, ReadWriteMode>::Write<ReadWriteMode, void>(unsigned int)
+                         0x800'52f9    0xc  Code  Wk  main.o [1]
+void RegisterBase<(unsigned int)1073898516, (unsigned int)32, ReadWriteMode>::Write<ReadWriteMode, void>(unsigned int)
+                         0x800'5701    0xc  Code  Wk  ADC.o [2]
+void RegisterBase<(unsigned int)1073898520, (unsigned int)32, ReadWriteMode>::Write<ReadWriteMode, void>(unsigned int)
+                         0x800'56e9    0xc  Code  Wk  ADC.o [2]
+void RegisterBase<(unsigned int)1073898524, (unsigned int)32, ReadWriteMode>::Write<ReadWriteMode, void>(unsigned int)
+                         0x800'56f5    0xc  Code  Wk  ADC.o [2]
+void RegisterBase<(unsigned int)3758153988, (unsigned int)32, ReadWriteMode>::Write<ReadWriteMode, void>(unsigned int)
+                         0x800'5241    0xc  Code  Wk  main.o [1]
+void std::__call_once_proxy<std::tuple<std::<unnamed>::__fake_bind &&>>(void *)
+                         0x800'7001   0x1c  Code  Wk  locale.o [8]
+void std::__do_deallocate_handle_size<>(void *, unsigned int, ...)
+                         0x800'3235    0x8  Code  Wk  InSender.o [6]
+void std::__do_deallocate_handle_size<std::align_val_t>(void *, unsigned int, std::align_val_t...)
+                         0x800'322d    0x8  Code  Wk  InSender.o [6]
+void std::__libcpp_operator_delete<void *, unsigned int, std::align_val_t>(void *, unsigned int, std::align_val_t...)
+                         0x800'323d    0x8  Code  Wk  InSender.o [6]
+void std::__libcpp_operator_delete<void *, unsigned int>(void *, unsigned int...)
+                         0x800'3245    0x8  Code  Wk  InSender.o [6]
+void std::__tree_left_rotate<std::__tree_node_base<void *> *>(std::__tree_node_base<void *> *)
+                         0x800'31b9   0x20  Code  Wk  iar_newlocale.o [8]
+void std::__tree_remove<std::__tree_node_base<void *> *>(std::__tree_node_base<void *> *, std::__tree_node_base<void *> *)
+                         0x800'2f39  0x1a0  Code  Wk  iar_newlocale.o [8]
+void std::__tree_right_rotate<std::__tree_node_base<void *> *>(std::__tree_node_base<void *> *)
+                         0x800'31d9   0x20  Code  Wk  iar_newlocale.o [8]
+void std::reverse<char *>(char *, char *)
+                         0x800'4cff   0x18  Code  Wk  locale.o [8]
+volt                    0x2000'1c54    0x8  Data  Gb  main.o [1]
+vsnprintf                0x800'2dbd   0x3c  Code  Gb  vsnprint.o [7]
+xActiveTimerList1       0x2000'1c00   0x14  Data  Lc  timers.o [4]
+xActiveTimerList2       0x2000'1c14   0x14  Data  Lc  timers.o [4]
+xDelayedTaskList1       0x2000'1bb0   0x14  Data  Lc  tasks.o [4]
+xDelayedTaskList2       0x2000'1bc4   0x14  Data  Lc  tasks.o [4]
+xIdleTaskHandle         0x2000'1d54    0x4  Data  Lc  tasks.o [4]
+xNextTaskUnblockTime    0x2000'1d50    0x4  Data  Lc  tasks.o [4]
+xNumOfOverflows         0x2000'1d48    0x4  Data  Lc  tasks.o [4]
+xPendingReadyList       0x2000'1bd8   0x14  Data  Lc  tasks.o [4]
+xPortPendSVHandler       0x800'4025         Code  Gb  portasm.o [5]
+xPortStartScheduler      0x800'3b45   0x88  Code  Gb  port.o [5]
+xPortSysTickHandler      0x800'3c05   0x28  Code  Gb  port.o [5]
+xQueueGenericCreateStatic
+                         0x800'414b   0x38  Code  Gb  queue.o [4]
+xQueueGenericReceive     0x800'437f  0x190  Code  Gb  queue.o [4]
+xQueueGenericReset       0x800'40cd   0x7e  Code  Gb  queue.o [4]
+xQueueGenericSend        0x800'419f  0x142  Code  Gb  queue.o [4]
+xQueueGenericSendFromISR
+                         0x800'42e1   0x9e  Code  Gb  queue.o [4]
+xQueueRegistry          0x2000'1b54   0x40  Data  Gb  queue.o [4]
+xSchedulerRunning       0x2000'1d3c    0x4  Data  Lc  tasks.o [4]
+xSuspendedTaskList      0x2000'1bec   0x14  Data  Lc  tasks.o [4]
+xTaskCheckForTimeOut     0x800'374d   0x5a  Code  Gb  tasks.o [4]
+xTaskCreateStatic        0x800'3251   0x36  Code  Gb  tasks.o [4]
+xTaskGetSchedulerState   0x800'3831   0x1e  Code  Gb  tasks.o [4]
+xTaskGetTickCount        0x800'3549    0x8  Code  Gb  tasks.o [4]
+xTaskIncrementTick       0x800'3551   0xe6  Code  Gb  tasks.o [4]
+xTaskPriorityDisinherit
+                         0x800'38d9   0x7e  Code  Gb  tasks.o [4]
+xTaskRemoveFromEventList
+                         0x800'36cd   0x6e  Code  Gb  tasks.o [4]
+xTaskResumeAll           0x800'3479   0xd0  Code  Gb  tasks.o [4]
+xTickCount              0x2000'1d34    0x4  Data  Lc  tasks.o [4]
+xTimerCreateTimerTask    0x800'3c6d   0x56  Code  Gb  timers.o [4]
+xTimerGenericCommand     0x800'3cc3   0x50  Code  Gb  timers.o [4]
+xTimerQueue             0x2000'1d64    0x4  Data  Lc  timers.o [4]
+xTimerTaskHandle        0x2000'1d68    0x4  Data  Lc  timers.o [4]
+xYieldPending           0x2000'1d44    0x4  Data  Lc  tasks.o [4]
+
+
+[1] = D:\DownloadsGoogle\dlu-kursocha\Kursovow\Debug\Obj
+[2] = D:\DownloadsGoogle\dlu-kursocha\Kursovow\Debug\Obj\Hardware\ADC
+[3] = D:\DownloadsGoogle\dlu-kursocha\Kursovow\Debug\Obj\Hardware\PWM
+[4] = D:\DownloadsGoogle\dlu-kursocha\Kursovow\Debug\Obj\Rtos\FreeRtos
+[5] = D:\DownloadsGoogle\dlu-kursocha\Kursovow\Debug\Obj\Rtos\FreeRtos\portable\IAR\ARM_CM4F
+[6] = D:\DownloadsGoogle\dlu-kursocha\Kursovow\Debug\Obj\Thread
+[7] = dl7M_tlf.a
+[8] = dllibcpp7M_tls_fc.a
+[9] = dlpprt7M_tl_fc.a
+[10] = m7M_tls.a
+[11] = rt7M_tl.a
+[12] = shb_l.a
+
+  26'011 bytes of readonly  code memory
+   3'597 bytes of readonly  data memory
+  24'383 bytes of readwrite data memory
+
+Errors: none
+Warnings: none
